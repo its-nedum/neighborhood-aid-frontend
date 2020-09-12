@@ -4,6 +4,10 @@ import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import Home from './components/pages/home';
 import Navbar from './components/layouts/navbar';
 import Footer from './components/layouts/footer';
+import About from './components/pages/about'
+import Stories from './components/pages/stories'
+import Signin from './components/pages/signin'
+import Signup from './components/pages/signup'
 
 function App() {
   return (
@@ -11,7 +15,11 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/stories" component={Stories} />
+          <Route path="/sign-in" component={Signin} />
+          <Route path="/sign-up" component={Signup} />
         </Switch>
         <Footer />
       </div>
