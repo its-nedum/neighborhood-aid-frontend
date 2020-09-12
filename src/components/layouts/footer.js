@@ -8,13 +8,13 @@ const Footer = () => {
             <hr />
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 col-sm-7 mb-3 order-1 order-md-2">
+                    <div className="col-12 col-sm-7 mb-3 order-2 order-md-1">
                         <h5 className="footer-headings footer-logo">Neighborhood Aid</h5>
                         <p className="footer-text">Technology can be used in many ways, but it's best used to help people.<br/> This can be at the global level, or it can be used to make a difference right outside your door!</p>
                         <p className="footer-text">Neighborhood aid helps to facilitate exchanged acts of kindness by connecting<br/> people in need to willing volunteers in their community.</p>
                         <p className="footer-copyright">&copy; 2020 Neighborhood Aid. All rights reserved | Developed with <span className="text-danger">♥</span> by <a href="https://github.com/its-nedum" target="_blank" rel="noopener noreferrer">Chinedu Emesue</a></p>
                     </div>
-                    <div className="col-12 col-sm-5 order-2 order-md-1">
+                    <div className="col-12 col-sm-5 order-1 order-md-2">
                         <div className="row">
                             <div className="col-12 col-sm-6 mb-3">
                                 <h5 className="footer-headings">Quick Links</h5>
