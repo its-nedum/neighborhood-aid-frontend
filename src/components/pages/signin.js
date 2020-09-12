@@ -1,9 +1,12 @@
 import React from 'react'
+import '../../styles/signin.css'
 
 const Signin = () => {
     return (
         <div>
-            <h1>Sign In Page</h1>
+            <div className="auth-banner mt-5">
+                <h1>Signin Page</h1>
+            </div>
         </div>
     )
 }
