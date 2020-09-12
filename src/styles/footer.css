@@ -1,0 +1,24 @@
+.footer-headings {
+    text-align: left;
+    color: #627081;
+    font-size: 16px;
+}
+
+.quick_links li, .service_links li {
+    list-style-type: none;
+    text-align: left;
+}
+
+.quick_links li a, .service_links li a {
+    display: inline;
+    text-decoration: none;
+    color: #414851;
+}
+
+.quick_links li, 
+.quick_links ul, 
+.service_links ul, 
+.service_links li{
+    margin: 0px;
+    padding: 0px;
+}
