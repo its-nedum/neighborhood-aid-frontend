@@ -22,3 +22,12 @@
     margin: 0px;
     padding: 0px;
 }
+
+.service_links .social_links a span {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.service_links .social_links a:hover {
+    text-decoration: none;
+}

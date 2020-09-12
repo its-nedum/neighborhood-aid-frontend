@@ -7,12 +7,12 @@ const Footer = () => {
         <div>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 col-sm-7">
+                    <div className="col-12 col-sm-7 mb-3">
                         <h5 className="footer-headings">Neighborhood Aid</h5>
                     </div>
                     <div className="col-12 col-sm-5">
                         <div className="row">
-                            <div className="col-12 col-sm-6">
+                            <div className="col-12 col-sm-6 mb-3">
                                 <h5 className="footer-headings">Quick LInks</h5>
                                 <div className="quick_links">
                                 <ul className="">
@@ -24,7 +24,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                             </div>
-                            <div className="col-12 col-sm-6">
+                            <div className="col-12 col-sm-6 mb-3">
                                 <h5 className="footer-headings">Company</h5>
                                 <div className="service_links">
                                 <ul>
@@ -32,7 +32,7 @@ const Footer = () => {
                                     <li><Link to="#">Careers</Link></li>
                                     <li><Link to="#">Term of Service</Link></li>
                                     <li><Link to="#">Privacy Policy</Link></li>
-                                    <li>
+                                    <li className="social_links">
                                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><span className="fab fa-facebook"></span></a>
                                     <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><span className="fab fa-twitter"></span></a>
                                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><span className="fab fa-instagram"></span></a>
