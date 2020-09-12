@@ -18,9 +18,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="second-section">
+            <div className="second-section container-fluid">
                 <div className="row">
-                    
+                    <h1>Section two</h1>
                 </div>
             </div>
         </div>

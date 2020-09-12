@@ -55,3 +55,9 @@
     font-weight: 600;
     border: 1px solid #083E9E;
 }
+
+.second-section {
+    background-color: #fbfbfb;
+    width: 100%;
+    height: auto;
+}
