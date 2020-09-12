@@ -1,7 +1,7 @@
 .footer-headings {
     text-align: left;
     color: #627081;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .quick_links li, .service_links li {
@@ -23,6 +23,10 @@
     padding: 0px;
 }
 
+.quick_links a:hover, .service_links a:hover{
+    color: #083E9E;
+}
+
 .service_links .social_links a span {
     font-size: 20px;
     margin-right: 10px;
@@ -30,4 +34,19 @@
 
 .service_links .social_links a:hover {
     text-decoration: none;
+}
+
+.footer-logo {
+    color: #083E9E;
+}
+
+.footer-text {
+    text-align: justify;
+    color: #627081;
+}
+
+.footer-copyright {
+    text-align: left;
+    font-size: 14px;
+    color: #627081;
 }
