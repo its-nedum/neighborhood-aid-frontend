@@ -5,7 +5,7 @@ import '../../styles/footer.css'
 const Footer = () => {
     return (
         <div>
-            {/* <hr /> */}
+            <hr className="text-grey mb-5"/>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 col-sm-7 mb-3 order-2 order-md-1">

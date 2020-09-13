@@ -53,14 +53,17 @@ const Home = () => {
                 </div>
             </div>
             <div className="fourth-section container-fluid mb-5">
-                <div className="row pt-5 pb-5">
+                <div className="row pt-5 pb-1">
                     <div className="col-12">
                         <h1 className="fourth-section-heading">Why You Need To Help</h1>
                         <p className="fourth-section-text">You may have seen people sleeping in the streets, a single mother struggling to carry a new piece of furniture up the stairs,<br/>
                          or someone whose car broke down, so now they can't get to work for a month.<br/>
-                         Your little effort can make a BIG difference.
+                         Your little effort can make a <strong>BIG</strong> difference.
                          </p>
                     </div>
+                </div>
+                <div className="row btn-group mb-3">
+                    <Link to="/sign-in" className="myBtn">Create a Free Account</Link>
                 </div>
             </div>
         </div>
