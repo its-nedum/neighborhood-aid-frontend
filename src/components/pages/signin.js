@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../styles/signin.css'
+import {Link} from 'react-router-dom'
 
 const Signin = () => {
     return (
@@ -27,6 +28,9 @@ const Signin = () => {
                                 <div className="col-12 mb-3">
                                     <button type="button" className="form-control btn btn-primary">Log In</button>
                                 </div>
+                            </div>
+                            <div className="row input-group pl-3 mb-3">
+                                <p>Don't have an account? <Link to="/sign-up" className="">Sign Up</Link></p>
                             </div>
                         </form>
                     </div>
