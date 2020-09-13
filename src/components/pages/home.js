@@ -25,8 +25,8 @@ const Home = () => {
                 <h1 className="second-section-heading">Together We Can Help Our Community</h1>
                 <p className="second-section-text">Technology can be used in many ways, but it's best used to help people.<br/> This can be at the global level, or it can be used to make a difference right outside your door!</p>
             </div>
-            <div className="third-section container">
-                <div className="row mt-5">
+            <div className="third-section container mt-5 mb-5">
+                <div className="row">
                     <div className="col-12 col-md-4 card">
                         <img src={account} alt="account-pix" className="img-fluid" />
                         <div className="card-body">
@@ -49,6 +49,17 @@ const Home = () => {
                             <h5 className="card-title">Request <br/> for Help</h5>
                             <p className="card-text">Submit a request for help with a brief description, type of request and your location.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="fourth-section container-fluid mb-5">
+                <div className="row pt-5 pb-5">
+                    <div className="col-12">
+                        <h1 className="fourth-section-heading">Why You Need To Help</h1>
+                        <p className="fourth-section-text">You may have seen people sleeping in the streets, a single mother struggling to carry a new piece of furniture up the stairs,<br/>
+                         or someone whose car broke down, so now they can't get to work for a month.<br/>
+                         Your little effort can make a BIG difference.
+                         </p>
                     </div>
                 </div>
             </div>
