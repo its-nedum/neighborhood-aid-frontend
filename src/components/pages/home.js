@@ -14,7 +14,7 @@ const Home = () => {
                         <div className="col-12 col-sm-8 intro-txt">
                             <h1>A Better Way <br/>To Exchange Acts Of Kindness</h1>
                             <div className="">
-                                <Link to="/sign-in" className="myBtn">Create a Free Account</Link>
+                                <Link to="/sign-up" className="myBtn">Create a Free Account</Link>
                             </div>
                         </div>
                         <div className="col-sm-4"></div>
@@ -63,7 +63,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="row btn-group mb-3">
-                    <Link to="/sign-in" className="myBtn">Create a Free Account</Link>
+                    <Link to="/sign-up" className="myBtn">Create a Free Account</Link>
                 </div>
             </div>
         </div>

@@ -4,8 +4,34 @@ import '../../styles/signin.css'
 const Signin = () => {
     return (
         <div>
-            <div className="auth-banner mt-5">
-                <h1>Signin Page</h1>
+        <div className="container-fluid auth-banner mt-5">
+                <div className="row pl-3">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <form className="card mt-5 pl-3">
+                            <h1 className="auth-heading">Login To Your Account</h1>
+                            <p className="auth-text">Securely login to your Nieghborhood Aid</p>
+                            <div className="row input-group">
+                                <div className="col-12 mb-3">
+                                    <label>Email Address</label>  
+                                    <input type="email" className="form-control" placeholder="Email Address" aria-label="email" />
+                                </div>
+                            </div>
+                            <div className="row input-group">
+                                <div className="col-12 mb-3">
+                                    <label>Password</label>  
+                                    <input type="password" className="form-control" placeholder="Passowrd" aria-label="password" />
+                                </div>
+                            </div>
+                            <div className="row btn-group pr-4">
+                                <div className="col-12 mb-3">
+                                    <button type="button" className="form-control btn btn-primary">Log In</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="col-md-4"></div>
+                </div>
             </div>
         </div>
     )

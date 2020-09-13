@@ -34,6 +34,12 @@ const Signup = () => {
                                     <input type="file" className="form-control" accept="image/png,image/jpeg,application/pdf" />
                                 </div>
                             </div>
+                            <div className="row input-group">
+                                <div className="col-12 mb-3">
+                                    <label>Password</label>  
+                                    <input type="password" className="form-control" placeholder="Passowrd" aria-label="password" />
+                                </div>
+                            </div>
                             <div className="row btn-group pr-4">
                                 <div className="col-12 mb-3">
                                     <button type="button" className="form-control btn btn-primary">Sign Up</button>
