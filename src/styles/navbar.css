@@ -1,12 +1,16 @@
 .nav-link, .navbar-brand{
-    color: #083E9E !important;
+    color: #fff !important;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .action-btn:hover{
-    color: #fff !important;
+    color: #1a622a;
 }
 
 .other-btn:hover {
-    color: #1a622a !important;
+    color: #1a622a;
+}
+
+.nav-bg{
+    background-color: #083E9E;
 }

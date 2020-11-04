@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import account from '../../images/account.png'
 import request from '../../images/request.png'
 import volunteer from '../../images/volunteer.png'
+import Navbar from '../layouts/navbar'
 
 const Home = () => {
     return (
         <div>
+            <Navbar />
             <div className="first-section mt-5">
                 <div className="inner-content container-fluid">
                     <div className="row">
@@ -24,6 +26,20 @@ const Home = () => {
             <div className="second-section container-fluid pt-4 pb-4 mb-5">
                 <h1 className="second-section-heading">Together We Can Help Our Community</h1>
                 <p className="second-section-text">Technology can be used in many ways, but it's best used to help people.<br/> This can be at the global level, or it can be used to make a difference right outside your door!</p>
+            </div>
+            <div className="fourth-section container-fluid mb-5">
+                <div className="row pt-5 pb-1">
+                    <div className="col-12">
+                        <h1 className="fourth-section-heading">Why You Need To Help</h1>
+                        <p className="fourth-section-text">You may have seen people sleeping in the streets, a single mother struggling to carry a new piece of furniture up the stairs,<br/>
+                         or someone whose car broke down, so now they can't get to work for a month.<br/>
+                         Your little effort can make a <strong>BIG</strong> difference.
+                         </p>
+                    </div>
+                </div>
+                <div className="row btn-group mb-3">
+                    <Link to="/sign-up" className="myBtn">Create a Free Account</Link>
+                </div>
             </div>
             <div className="third-section container mt-5 mb-5">
                 <div className="row">
@@ -52,20 +68,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="fourth-section container-fluid mb-5">
-                <div className="row pt-5 pb-1">
-                    <div className="col-12">
-                        <h1 className="fourth-section-heading">Why You Need To Help</h1>
-                        <p className="fourth-section-text">You may have seen people sleeping in the streets, a single mother struggling to carry a new piece of furniture up the stairs,<br/>
-                         or someone whose car broke down, so now they can't get to work for a month.<br/>
-                         Your little effort can make a <strong>BIG</strong> difference.
-                         </p>
-                    </div>
-                </div>
-                <div className="row btn-group mb-3">
-                    <Link to="/sign-up" className="myBtn">Create a Free Account</Link>
-                </div>
-            </div>
+        
         </div>
     )
 }

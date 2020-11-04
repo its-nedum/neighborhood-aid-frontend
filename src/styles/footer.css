@@ -46,7 +46,11 @@
 }
 
 .footer-copyright {
-    text-align: left;
+    text-align: center;
     font-size: 14px;
-    color: #627081;
+    color: #fff;
+}
+
+.bg-footer{
+    background-color: #083E9E;
 }

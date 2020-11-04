@@ -1,9 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Navbar from '../layouts/navbar'
 
 const Signup = () => {
     return (
         <div>
+            <Navbar />
             <div className="container-fluid auth-banner mt-5">
                 <div className="row pl-3">
                     <div className="col-md-4"></div>
