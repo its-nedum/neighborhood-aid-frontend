@@ -4,12 +4,12 @@ import Navbar from "../layouts/navbar"
 
 const About = () => {
     return (
-        <div>
+        <div className="full-screen">
             <Navbar />
             <div className="about-top">
                 <h1 className="about-heading">Our Mission: To Create A Better Way To Exchange Acts Of Kindness.</h1>
             </div>
-            <div className="container mt-4 mb-5">
+            <div className="container mb-5">
                 <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-12 col-md-6">

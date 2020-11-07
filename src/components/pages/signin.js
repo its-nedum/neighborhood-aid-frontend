@@ -7,10 +7,10 @@ const Signin = () => {
     return (
         <div>
         <Navbar />
-        <div className="container-fluid auth-banner mt-5">
+        <div className="container-fluid signin-banner">
                 <div className="row pl-3">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6">
                         <form className="card mt-5 pl-3">
                             <h1 className="auth-heading">Login To Your Account</h1>
                             <p className="auth-text">Securely login to your Nieghborhood Aid</p>
@@ -36,7 +36,7 @@ const Signin = () => {
                             </div>
                         </form>
                     </div>
-                    <div className="col-md-4"></div>
+                    <div className="col-md-3"></div>
                 </div>
             </div>
         </div>

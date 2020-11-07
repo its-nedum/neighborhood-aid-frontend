@@ -3,7 +3,7 @@ import Navbar from '../layouts/navbar'
 import "../../styles/singleRequest.css"
 
 
-{/* This page displays the request details */}
+//This page displays the request details
 const SingleRequest = () => {
     return (
         <div>

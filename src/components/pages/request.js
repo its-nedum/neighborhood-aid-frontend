@@ -7,7 +7,7 @@ const Request = () => {
     return (
         <div>
         <Navbar />
-        <div className="container-fluid mt-5 mb-3">
+        <div className="container-fluid mb-3">
                 <div className="row pl-3">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {GoogleMap, LoadScript, Marker, InfoWindow} from "@react-google-maps/api"
 // import ico from "./icons/man-user.svg"
 // AIzaSyCyvcvBNnBFKP0Xnbb4K-BnMl9f_NXYhDc
@@ -15,9 +15,9 @@ const containerStyle = {
   };
 
 const Mapped = () => {
-    const [showInfoWindow, setShowInfoWindow] = useState(false)
-    const [activeMarker, setActiveMarker] = useState({})
-    const [selectedPlace, setSelectedPlace] = useState({})
+    // const [showInfoWindow, setShowInfoWindow] = useState(false)
+    // const [activeMarker, setActiveMarker] = useState({})
+    // const [selectedPlace, setSelectedPlace] = useState({})
 
     const onMarkerClick = (e) => {
         console.log({e})

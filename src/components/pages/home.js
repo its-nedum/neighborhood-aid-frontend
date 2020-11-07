@@ -10,8 +10,8 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <div className="first-section mt-5">
-                <div className="inner-content container-fluid">
+            <div className="first-section">
+                <div className="inner-content container">
                     <div className="row">
                         <div className="col-12 col-sm-8 intro-txt">
                             <h1>A Better Way <br/>To Exchange Acts Of Kindness</h1>

@@ -5,7 +5,7 @@ import '../../styles/navbar.css'
 const Navbar = () => {
     return (
         <div className="">
-            <nav className="navbar fixed-top navbar-expand-lg navbar-light nav-bg">
+            <nav className="navbar navbar-expand-lg navbar-light nav-bg">
                 <NavLink className="navbar-brand" to="/">Neighborhood Aid</NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
