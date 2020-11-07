@@ -28,6 +28,12 @@ const Navbar = () => {
                         <li className="nav-item">
                             <NavLink className="nav-link other-btn" to="/request/new">Create a request</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link other-btn" to="/users/requests">My Requests</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link other-btn" to="/users/volunteering">My Volunteering</NavLink>
+                        </li>
                         <li className="nav-item dropdown">
                             <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Jane Doe
