@@ -33,7 +33,7 @@ const Mapped = () => {
     ]
 
     return (
-        <LoadScript googleMapsApiKey="AIzaSyCyvcvBNnBFKP0Xnbb4K-BnMl9f_NXYhDc">
+        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
             <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                 {locations.map((place) => {
                     return(

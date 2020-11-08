@@ -46,7 +46,7 @@ const Home = () => {
                     <div className="col-12 col-md-4 card">
                         <img src={account} alt="account-pix" className="img-fluid" />
                         <div className="card-body">
-                            <h5 className="card-title">Create <br/> an Acount</h5>
+                            <h5 className="card-heading">Create <br/> an Acount</h5>
                             <p className="card-text">
                             Create an account with your first name, last name, email address and upload a copy of any government approved ID.
                             </p>
@@ -55,14 +55,14 @@ const Home = () => {
                     <div className="col-12 col-md-4 card">
                         <img src={volunteer} alt="volunteer-pix" className="img-fluid" />
                         <div className="card-body">
-                            <h5 className="card-title">Volunteer <br/> to Help</h5>
+                            <h5 className="card-heading">Volunteer <br/> to Help</h5>
                             <p className="card-text">Use the geolocalized map with markers on it indicating people in need of community help.</p>
                         </div>
                     </div>
                     <div className="col-12 col-md-4 card">
                         <img src={request} alt="request-pix" className="img-fluid" />
                         <div className="card-body">
-                            <h5 className="card-title">Request <br/> for Help</h5>
+                            <h5 className="card-heading">Request <br/> for Help</h5>
                             <p className="card-text">Submit a request for help with a brief description, type of request and your location.</p>
                         </div>
                     </div>
