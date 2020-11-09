@@ -2,10 +2,10 @@ import React from 'react'
 import '../../styles/about.css'
 import Navbar from "../layouts/navbar"
 
-const About = () => {
+const About = (props) => {
     return (
         <div className="full-screen">
-            <Navbar />
+            <Navbar ownProps={props}/>
             <div className="about-top">
                 <h1 className="about-heading">Our Mission: To Create A Better Way To Exchange Acts Of Kindness.</h1>
             </div>

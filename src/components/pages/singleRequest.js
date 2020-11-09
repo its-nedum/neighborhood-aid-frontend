@@ -1,13 +1,15 @@
 import React from 'react'
 import Navbar from '../layouts/navbar'
 import "../../styles/singleRequest.css"
-
+import { isLoggedIn } from "../services/utilities"
+import {Redirect} from 'react-router-dom'
 
 //This page displays the request details
-const SingleRequest = () => {
+const SingleRequest = (props) => {
+    if(!isLoggedIn()) return <Redirect to='/' />
     return (
         <div>
-            <Navbar />
+            <Navbar ownProps={props}/>
             <div className="container single-banner mt-5">
                 <div className="row">
                     <div className="col-12">

@@ -1,12 +1,14 @@
 import React from 'react'
 import "../../styles/request.css"
 import Navbar from '../layouts/navbar'
+import { isLoggedIn } from "../services/utilities"
+import {Redirect} from 'react-router-dom'
 
-
-const Request = () => {
+const Request = (props) => {
+    if(!isLoggedIn()) return <Redirect to='/' />
     return (
         <div>
-        <Navbar />
+        <Navbar ownProps={props}/>
         <div className="container-fluid mb-3">
                 <div className="row pl-3">
                     <div className="col-md-3"></div>

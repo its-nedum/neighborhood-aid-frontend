@@ -1,52 +1,96 @@
-import React from 'react'
-import { compose, withProps } from "recompose"
-import {withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps"
+import React, {useState, Fragment, useEffect} from 'react'
+import {GoogleMap, Marker, InfoWindow, useLoadScript} from "@react-google-maps/api"
 
-const MyMapComponent = compose(
-    withProps({
-      googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
-      loadingElement: <div style={{ height: `100%` }} />,
-      containerElement: <div style={{ height: `100vh` }} />,
-      mapElement: <div style={{ height: `100%` }} />,
-    }),
-    withScriptjs,
-    withGoogleMap
-  )((props) =>
-    <GoogleMap
-      defaultZoom={8}
-      defaultCenter={{ lat: 9.0765, lng: 7.3986 }}
-    >
-      {props.isMarkerShown && <Marker position={{ lat: 9.0765, lng: 7.3986 }} onClick={props.onMarkerClick} />}
-    </GoogleMap>
-  )
+// set map container size
+const containerStyle = {
+    width: '100%',
+    height: '100vh'
+  };
 
-  class Map extends React.PureComponent {
-    state = {
-      isMarkerShown: false,
+const Map = () => {
+
+    // pass google map api key to load the Google Maps script
+    const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY })
+
+    // set up useState hook
+    const [selectedPlace, setSelectedPlace] = useState(null);
+    const [markerMap, setMarkerMap] = useState({});
+    const [infoWindowOpen, setInfoWindowOpen] = useState(false)
+
+    // set the default map center to somewhere in Nigeria 
+    const [center, setCenter] = useState({lat: 9.0820,lng: 8.6753})
+
+    // make api call to backend to get requests details and location
+    const locations = [
+        {id: 1, name: 'Keffi', cord:{lat: 8.8471, lng: 7.8776}, type:'One time', mesg:'I love keffi'},
+        {id: 2, name: 'Wuse', cord:{lat: 9.0787, lng: 7.4702}, type:'Material',  mesg:'I love Wuse' },
+        {id: 3, name: 'Kuje', cord:{lat: 8.8764, lng: 7.2437}, type:'One time', mesg:'I love Kuje' },
+    ]
+
+    /* When a logged in user allows their browser to access their current
+     location, the map automatically adjust to their geolocalised location
+    */
+    useEffect(() => {
+        const getUserLocation = (position) => {
+            return setCenter({lat: position.coords.latitude, lng: position.coords.longitude})
+         }
+         if(navigator.geolocation){
+             navigator.geolocation.getCurrentPosition(getUserLocation)
+         }else{
+             console.log('Not supported')
+         }
+    },[])
+
+    // mapping all of the places to actual Marker objects
+    const markerLoadHandler = (marker, place) => {
+        return setMarkerMap(prevState => {
+            return {...prevState, [place.id]: marker}
+        });
     }
-  
-    componentDidMount() {
-      this.delayedShowMarker()
+
+    const markerClickHandler = (event, place) => {
+        // remember which place was clicked
+        setSelectedPlace(place)
+
+        // this close the first marker infoWindowWindow on the click of the second marker
+        if(infoWindowOpen){
+            setInfoWindowOpen(false)
+        }
+
+        setInfoWindowOpen(true)
     }
-  
-    delayedShowMarker = () => {
-      setTimeout(() => {
-        this.setState({ isMarkerShown: true })
-      }, 3000)
+    
+const showMap = () => {
+    return (
+        <Fragment>
+            <GoogleMap 
+                mapContainerStyle={containerStyle} 
+                center={center} zoom={9}    
+                >
+                {locations.map((place) => (
+                    <Marker 
+                        key={place.id} 
+                        position={place.cord}
+                        onLoad={(marker) => markerLoadHandler(marker, place)}
+                        onClick={(event) => markerClickHandler(event, place)} 
+                        />
+                ))}
+
+                {infoWindowOpen && selectedPlace && (
+                    <InfoWindow 
+                        anchor={markerMap[selectedPlace.id]}
+                        onCloseClick={() => setInfoWindowOpen(false)}>
+                        <div>
+                        <h3>{selectedPlace.name}</h3>
+                        <p>{selectedPlace.mesg}</p>
+                        </div>
+                    </InfoWindow>
+                )}
+            </GoogleMap>
+            </Fragment>
+    )
     }
-  
-    handleMarkerClick = () => {
-      this.setState({ isMarkerShown: false })
-      this.delayedShowMarker()
-    }
-  
-    render() {
-      return (
-        <div className="mt-5 mapSize">
-            <MyMapComponent isMarkerShown={this.state.isMarkerShown} onMarkerClick={this.handleMarkerClick} />
-        </div>
-      )
-    }
+    return isLoaded ? showMap() : <p>Loading map please wait...</p>
 }
 
 export default Map

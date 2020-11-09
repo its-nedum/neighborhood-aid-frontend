@@ -6,10 +6,10 @@ import request from '../../images/request.png'
 import volunteer from '../../images/volunteer.png'
 import Navbar from '../layouts/navbar'
 
-const Home = () => {
+const Home = (props) => {
     return (
         <div>
-            <Navbar />
+            <Navbar ownProps={props}/>
             <div className="first-section">
                 <div className="inner-content container">
                     <div className="row">

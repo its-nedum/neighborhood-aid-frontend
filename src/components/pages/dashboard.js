@@ -1,15 +1,17 @@
 import React from 'react'
 import "../../styles/dashboard.css"
 import Navbar from '../layouts/navbar'
-// import Map from "../helpers/map"
-import Mapped from "../helpers/mapped"
+import Map from "../helpers/map"
+import { isLoggedIn } from "../services/utilities"
+import {Redirect} from 'react-router-dom'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    if(!isLoggedIn()) return <Redirect to='/' />
     return (
         <div>
-            <Navbar />
+            <Navbar ownProps={props}/>
             <div className="dashboard">
-                <Mapped />
+                <Map />
             </div>
         </div>
     )
