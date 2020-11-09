@@ -1,5 +1,6 @@
 import React, {useState, Fragment, useEffect} from 'react'
 import {GoogleMap, Marker, InfoWindow, useLoadScript} from "@react-google-maps/api"
+import {Link} from "react-router-dom"
 
 // set map container size
 const containerStyle = {
@@ -83,6 +84,7 @@ const showMap = () => {
                         <div>
                         <h3>{selectedPlace.name}</h3>
                         <p>{selectedPlace.mesg}</p>
+                        <Link className="btn btn-secondary btn-sm" to={`/request/${selectedPlace.id}/${selectedPlace.mesg}`}>Fulfill this need</Link>
                         </div>
                     </InfoWindow>
                 )}
