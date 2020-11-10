@@ -1,6 +1,7 @@
 import React, {useState, Fragment, useEffect} from 'react'
 import {GoogleMap, Marker, InfoWindow, useLoadScript} from "@react-google-maps/api"
 import {Link} from "react-router-dom"
+import Spinner from "./spinner"
 
 // set map container size
 const containerStyle = {
@@ -92,7 +93,7 @@ const showMap = () => {
             </Fragment>
     )
     }
-    return isLoaded ? showMap() : <p>Loading map please wait...</p>
+    return isLoaded ? showMap() : <Spinner />
 }
 
 export default Map

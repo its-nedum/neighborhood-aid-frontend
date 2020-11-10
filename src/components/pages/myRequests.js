@@ -16,9 +16,9 @@ const MyRequests = (props) => {
                     <div className="col-12">
                         <div className="card my-request-card pl-2">
                             <h5 className="mt-2 req-title">I need a blanket for this cold weather</h5>
-                            <p className="req-by">Request by: Jane Doe (You)</p>
-                            <p className="req-type">Type: Material</p>
-                            <p className="req-description text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="req-by"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="req-type"><strong>Type:</strong> Material</p>
+                            <p className="req-description text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
                             <Link to="/request/1/i-need-a-blanket" className="req-link">View Request Status</Link>
                         </div>
                     </div>
@@ -29,9 +29,9 @@ const MyRequests = (props) => {
                     <div className="col-12">
                         <div className="card my-request-card pl-2">
                             <h5 className="mt-2 req-title">I need a blanket for this cold weather</h5>
-                            <p className="req-by">Request by: Jane Doe (You)</p>
-                            <p className="req-type">Type: Material</p>
-                            <p className="req-description text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="req-by"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="req-type"><strong>Type:</strong> Material</p>
+                            <p className="req-description text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
                             <Link to="/request/1/i-need-a-blanket" className="req-link">View Request Status</Link>
                         </div>
                     </div>
@@ -42,9 +42,9 @@ const MyRequests = (props) => {
                     <div className="col-12">
                         <div className="card my-request-card pl-2">
                             <h5 className="mt-2 req-title">I need a blanket for this cold weather</h5>
-                            <p className="req-by">Request by: Jane Doe (You)</p>
-                            <p className="req-type">Type: Material</p>
-                            <p className="req-description text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="req-by"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="req-type"><strong>Type:</strong> Material</p>
+                            <p className="req-description text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
                             <Link to="/request/1/i-need-a-blanket" className="req-link">View Request Status</Link>
                         </div>
                     </div>
@@ -55,9 +55,9 @@ const MyRequests = (props) => {
                     <div className="col-12">
                         <div className="card my-request-card pl-2">
                             <h5 className="mt-2 req-title">I need a blanket for this cold weather</h5>
-                            <p className="req-by">Request by: Jane Doe (You)</p>
-                            <p className="req-type">Type: Material</p>
-                            <p className="req-description text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="req-by"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="req-type"><strong>Type:</strong> Material</p>
+                            <p className="req-description text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
                             <Link to="/request/1/i-need-a-blanket" className="req-link">View Request Status</Link>
                         </div>
                     </div>
