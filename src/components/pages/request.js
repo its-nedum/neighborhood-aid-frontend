@@ -26,8 +26,8 @@ const Request = (props) => {
                                     <label>Type<span className="text-danger">*</span></label>
                                     <select type="text" className="form-control">
                                         <option>select request type...</option>
-                                        <option></option>
-                                        <option></option>
+                                        <option>Service</option>
+                                        <option>Material</option>
                                     </select>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@ const Request = (props) => {
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Location<span className="text-danger">*</span></label>  
-                                    <input type="text" className="form-control" placeholder="Location" aria-label="location" />
+                                    <input type="text" className="form-control" placeholder="location" aria-label="location" />
                                 </div>
                             </div>
                             <div className="row btn-group pr-4">
