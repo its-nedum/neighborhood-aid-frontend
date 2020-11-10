@@ -42,12 +42,12 @@ const SingleRequest = (props) => {
                                         <tr>
                                             <td>1</td>
                                             <td>John Doe</td>
-                                            <td> - November 08, 2020 01:00pm</td>
+                                            <td>November 08, 2020 01:00pm</td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>John Doe</td>
-                                            <td> - November 08, 2020 01:00pm</td>
+                                            <td>November 08, 2020 01:00pm</td>
                                         </tr>
                                     </tbody>
                                 </table>
