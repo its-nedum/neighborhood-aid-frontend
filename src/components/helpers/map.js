@@ -24,9 +24,9 @@ const Map = () => {
 
     // make api call to backend to get requests details and location
     const locations = [
-        {id: 1, name: 'Keffi', cord:{lat: 8.8471, lng: 7.8776}, type:'One time', mesg:'I love keffi'},
-        {id: 2, name: 'Wuse', cord:{lat: 9.0787, lng: 7.4702}, type:'Material',  mesg:'I love Wuse' },
-        {id: 3, name: 'Kuje', cord:{lat: 8.8764, lng: 7.2437}, type:'One time', mesg:'I love Kuje' },
+        {id: 1, title: 'lorem-req-1', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8471, lng: 7.8776}, type:'One time', status: 'Unfulfilled'},
+        {id: 2, title: 'lorem-req-2', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 9.0787, lng: 7.4702}, type:'Material', status: 'Unfulfilled'},
+        {id: 3, title: 'lorem-req-3', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8764, lng: 7.2437}, type:'One time', status: 'Unfulfilled'},
     ]
 
     /* When a logged in user allows their browser to access their current
@@ -72,7 +72,7 @@ const showMap = () => {
                 {locations.map((place) => (
                     <Marker 
                         key={place.id} 
-                        position={place.cord}
+                        position={place.coords}
                         onLoad={(marker) => markerLoadHandler(marker, place)}
                         onClick={(event) => markerClickHandler(event, place)} 
                         />
@@ -83,9 +83,14 @@ const showMap = () => {
                         anchor={markerMap[selectedPlace.id]}
                         onCloseClick={() => setInfoWindowOpen(false)}>
                         <div>
-                        <h3>{selectedPlace.name}</h3>
-                        <p>{selectedPlace.mesg}</p>
-                        <Link className="btn btn-secondary btn-sm" to={`/request/${selectedPlace.id}/${selectedPlace.mesg}`}>Fulfill this need</Link>
+                        <h6 className="text-left">I need a blanket for this weather</h6>
+                        <p className="text-left">Chinedu Emesue</p>
+                        <div className="d-flex justify-content-between">
+                            <p className=""><strong>Type: </strong>{selectedPlace.type}</p>
+                            <p className=""><strong>Status: </strong>{selectedPlace.status}</p>
+                        </div>
+                        <p className="text-left">{selectedPlace.description}</p>
+                        <Link className="btn btn-secondary btn-sm" to={`/request/${selectedPlace.id}/${selectedPlace.title}`}>Fulfill this need</Link>
                         </div>
                     </InfoWindow>
                 )}

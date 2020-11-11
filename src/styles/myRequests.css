@@ -16,16 +16,3 @@
     width: 98%;
     margin-top: 0px;
 }
-.req-by, .req-type, .req-description, .req-title {
-    text-align: left;
-    margin: 0px;
-}
-
-.req-link {
-    text-align: left;
-}
-
-.num-of-helpers {
-    /* font-size: 20px; */
-    font-weight: 600;
-}

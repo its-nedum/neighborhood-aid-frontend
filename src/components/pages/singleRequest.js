@@ -61,7 +61,7 @@ const SingleRequest = (props) => {
                     <div className="col-12 col-md-7">
                         <div className="card">
                         <form className="submit-help-form pl-2 pr-2">
-                            <h5 className="float-left">Do You Want to Volunteer to help?</h5>
+                            <h5 className="text-left">Do You Want to Volunteer?</h5>
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Message</label>

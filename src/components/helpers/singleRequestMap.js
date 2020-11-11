@@ -23,9 +23,13 @@ const displayMap = () => {
                     <Marker position={place}>
                     <InfoWindow>
                         <div>
-                            <h5 className="map-req-title">I need a blanket for this weather</h5>
-                            <p className="map-req-type">Type: Material</p>
-                            <p className="map-req-by">Request by: Chinedu Emesue</p>
+                            <h6 className="text-left map-req-title">I need a blanket for this weather</h6>
+                            <p className="text-left map-req-by">Chinedu Emesue</p>
+                            <div className="d-flex justify-content-between">
+                                <p className="map-req-type"><strong>Type:</strong> Material</p>
+                                <p className="map-req-type"><strong>Status:</strong> Unfulfilled</p>
+                            </div>
+                            <p className="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, recusandae.</p>
                         </div>
                     </InfoWindow>
                     </Marker>

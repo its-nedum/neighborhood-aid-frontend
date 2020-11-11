@@ -25,7 +25,7 @@ function App() {
           <Route path="/request/new" component={Request} />
           <Route path="/users/requests" component={MyRequests} />
           <Route path="/users/volunteering" component={MyVolunteering} />
-          <Route path="/request/:id/:title" component={SingleRequest} />
+          <Route path="/request/:reqId/:title" component={SingleRequest} />
         </Switch>
         <Footer />
       </div>

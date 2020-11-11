@@ -13,7 +13,7 @@ const Request = (props) => {
                 <div className="row pl-3">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
-                        <form className="card mt-5 pl-3 request-form">
+                        <form className="card mt-5 mb-5 pl-3 request-form">
                             <h3 className="">Create a request</h3>
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
