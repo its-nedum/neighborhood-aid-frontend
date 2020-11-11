@@ -4,15 +4,9 @@
 }
 
 .my-request-card {
-    background-color: aliceblue;
-    
+    background-color: aliceblue; 
 }
 
 .req-title {
     text-transform: capitalize;
-}
-
-.hr{
-    width: 98%;
-    margin-top: 0px;
 }

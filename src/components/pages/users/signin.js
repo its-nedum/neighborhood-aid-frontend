@@ -58,13 +58,13 @@ const Signin = (props) => {
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Email</label>  
-                                    <input type="email" className="form-control" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} aria-label="email" />
+                                    <input type="email" className="form-control" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} aria-label="email" />
                                 </div>
                             </div>
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Password</label>  
-                                    <input type="password" className="form-control" placeholder="Passowrd" value={password} onChange={e => setPassword(e.target.value)} aria-label="password" />
+                                    <input type="password" className="form-control" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} aria-label="password" />
                                 </div>
                             </div>
                             <div className="row btn-group pr-4">

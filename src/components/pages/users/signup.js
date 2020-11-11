@@ -65,17 +65,17 @@ const Signup = (props) => {
                             <div className="row input-group">
                                 <div className="col-12 col-md-6 mb-3">
                                     <label>First Name</label>
-                                    <input type="text" className="form-control" placeholder="First Name" value={firstname} onChange={e => setFirstname(e.target.value)} aria-label="firstname" />
+                                    <input type="text" className="form-control" placeholder="First name" value={firstname} onChange={e => setFirstname(e.target.value)} aria-label="firstname" />
                                 </div>
                                 <div className="col-12 col-md-6 mb-3">
                                     <label>Last Name</label>
-                                    <input type="text" className="form-control" placeholder="Last Name" value={lastname} onChange={e => setLastname(e.target.value)} aria-label="lastname" />
+                                    <input type="text" className="form-control" placeholder="Last name" value={lastname} onChange={e => setLastname(e.target.value)} aria-label="lastname" />
                                 </div>
                             </div>
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Email</label>  
-                                    <input type="email" className="form-control" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} aria-label="email" />
+                                    <input type="email" className="form-control" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} aria-label="email" />
                                 </div>
                             </div>
                             <div className="row input-group">
@@ -87,7 +87,7 @@ const Signup = (props) => {
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Password</label>  
-                                    <input type="password" className="form-control" placeholder="Passowrd" value={password} onChange={e => setPassword(e.target.value)} aria-label="password" />
+                                    <input type="password" className="form-control" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} aria-label="password" />
                                 </div>
                             </div>
                             <div className="row btn-group pr-4">

@@ -11,6 +11,7 @@ import Request from './components/pages/requests/request'
 import MyVolunteering from './components/pages/requests/myVolunteering';
 import MyRequests from './components/pages/requests/myRequests'
 import SingleRequest from './components/pages/requests/singleRequest';
+import Message from './components/pages/requests/message';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
           <Route path="/request/new" component={Request} />
           <Route path="/users/requests" component={MyRequests} />
           <Route path="/users/volunteering" component={MyVolunteering} />
-          <Route path="/request/:reqId/:title" component={SingleRequest} />
+          <Route exact path="/request/:reqId/:title" component={SingleRequest} />
+          <Route path="/request/message" component={Message} />
         </Switch>
         <Footer />
       </div>
