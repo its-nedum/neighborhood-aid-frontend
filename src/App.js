@@ -3,10 +3,10 @@ import './App.css';
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import Home from './components/pages/home';
 import Footer from './components/layouts/footer';
-import About from './components/pages/about'
-import Signin from './components/pages/signin'
-import Signup from './components/pages/signup'
-import Dashboard from './components/pages/dashboard';
+import About from './components/pages/users/about'
+import Signin from './components/pages/users/signin'
+import Signup from './components/pages/users/signup'
+import Dashboard from './components/pages/requests/dashboard';
 import Request from './components/pages/requests/request'
 import MyVolunteering from './components/pages/requests/myVolunteering';
 import MyRequests from './components/pages/requests/myRequests'

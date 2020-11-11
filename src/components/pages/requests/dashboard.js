@@ -1,8 +1,8 @@
 import React from 'react'
-import "../../styles/dashboard.css"
-import Navbar from '../layouts/navbar'
-import Map from "../helpers/map"
-import { isLoggedIn } from "../services/utilities"
+import "../../../styles/dashboard.css"
+import Navbar from '../../layouts/navbar'
+import Map from "../../maps/map"
+import { isLoggedIn } from "../../services/utilities"
 import {Redirect} from 'react-router-dom'
 
 const Dashboard = (props) => {

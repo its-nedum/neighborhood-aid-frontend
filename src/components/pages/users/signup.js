@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import Navbar from '../layouts/navbar'
+import Navbar from '../../layouts/navbar'
 
 const Signup = (props) => {
     //setup our states using hooks
@@ -63,13 +63,11 @@ const Signup = (props) => {
                             <p className="auth-text">Welcome to a better way to exchange acts of kindness</p>
                             <p className="float-left text-danger">{error}</p>
                             <div className="row input-group">
-                                <div className="col-12 mb-3">
+                                <div className="col-12 col-md-6 mb-3">
                                     <label>First Name</label>
                                     <input type="text" className="form-control" placeholder="First Name" value={firstname} onChange={e => setFirstname(e.target.value)} aria-label="firstname" />
                                 </div>
-                            </div>
-                            <div className="row input-group">
-                                <div className="col-12 mb-3">
+                                <div className="col-12 col-md-6 mb-3">
                                     <label>Last Name</label>
                                     <input type="text" className="form-control" placeholder="Last Name" value={lastname} onChange={e => setLastname(e.target.value)} aria-label="lastname" />
                                 </div>

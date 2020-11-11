@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../layouts/navbar'
 import { isLoggedIn } from "../../services/utilities"
 import {Redirect, Link} from 'react-router-dom'
-import "../../styles/myRequests.css"
+import "../../../styles/myRequests.css"
 
 const MyRequests = (props) => {
     if(!isLoggedIn()) return <Redirect to='/' />

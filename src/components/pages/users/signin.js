@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import '../../styles/signin.css'
+import '../../../styles/signin.css'
 import {Link} from 'react-router-dom'
-import Navbar from '../layouts/navbar'
+import Navbar from '../../layouts/navbar'
 
 const Signin = (props) => {
     //setup our states using hooks

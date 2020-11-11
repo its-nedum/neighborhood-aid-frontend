@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../styles/about.css'
-import Navbar from "../layouts/navbar"
+import '../../../styles/about.css'
+import Navbar from "../../layouts/navbar"
 
 const About = (props) => {
     return (
