@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../styles/request.css"
-import Navbar from '../layouts/navbar'
-import { isLoggedIn } from "../services/utilities"
+import Navbar from '../../layouts/navbar'
+import { isLoggedIn } from "../../services/utilities"
 import {Redirect} from 'react-router-dom'
 
 const Request = (props) => {

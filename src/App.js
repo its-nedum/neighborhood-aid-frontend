@@ -7,10 +7,10 @@ import About from './components/pages/about'
 import Signin from './components/pages/signin'
 import Signup from './components/pages/signup'
 import Dashboard from './components/pages/dashboard';
-import Request from './components/pages/request'
-import MyVolunteering from './components/pages/myVolunteering';
-import MyRequests from './components/pages/myRequests'
-import SingleRequest from './components/pages/singleRequest';
+import Request from './components/pages/requests/request'
+import MyVolunteering from './components/pages/requests/myVolunteering';
+import MyRequests from './components/pages/requests/myRequests'
+import SingleRequest from './components/pages/requests/singleRequest';
 
 function App() {
   return (
