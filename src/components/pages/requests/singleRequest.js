@@ -25,6 +25,7 @@ const SingleRequest = (props) => {
                                     <h5 className="request-title">I need a blanket for this cold weather</h5>
                                     <h6 className="about-req-by"><strong>Request by:</strong> Chinedu Emesue</h6>
                                     <p className="about-req-type"><strong>Type:</strong> Material</p>
+                                    <p className="about-req-type"><strong>Status:</strong> Unfulfilled</p>
                                     <p className="about-req-description"><strong>Description:</strong> <br/> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas illo incidunt quis. Vero, tempore dolores.</p>
                                     <p className="about-req-created"><strong>Created at:</strong> November 08, 2020 01:00pm</p>
                                 </div>

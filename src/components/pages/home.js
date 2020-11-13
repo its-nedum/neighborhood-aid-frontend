@@ -46,7 +46,7 @@ const Home = (props) => {
                     <div className="col-12 col-md-4 card">
                         <img src={account} alt="account-pix" className="img-fluid" />
                         <div className="card-body">
-                            <h5 className="card-heading">Create <br/> an Acount</h5>
+                            <h5 className="card-heading">Create <br/> an Account</h5>
                             <p className="card-text">
                             Create an account with your first name, last name, email address and upload a copy of any government approved ID.
                             </p>

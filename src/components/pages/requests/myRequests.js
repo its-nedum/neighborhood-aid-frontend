@@ -12,7 +12,7 @@ const MyRequests = (props) => {
             <div className="container mt-3 mb-5">
                 <h4 className="my-request-heading">My Requests</h4>
                 <div className="row mb-2">
-                    <div className="col-12">
+                    <div className="col-12 mb-2">
                         <div className="card my-request-card pl-2">
                             <h5 className="text-left mb-0 mt-2 req-title">I need a blanket for this cold weather</h5>
                             <p className="text-left mb-0"><strong>Request by:</strong> Jane Doe (You)</p>
@@ -21,8 +21,50 @@ const MyRequests = (props) => {
                             <p className="text-left mb-0 text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
                             <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
                             <div className="d-flex mb-2">
-                                <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request Status</Link>
-                                <Link to="/request/message/" className="btn btn-secondary btn-sm ml-1">View Request Chat</Link>
+                                <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
+                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-12 mb-2">
+                        <div className="card my-request-card pl-2">
+                            <h5 className="text-left mb-0 mt-2 req-title">I need a blanket for this cold weather</h5>
+                            <p className="text-left mb-0"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="text-left mb-0"><strong>Type:</strong> Material</p>
+                            <p className="text-left mb-0"><strong>Status:</strong><span className="text-success"> Fulfilled</span></p>
+                            <p className="text-left mb-0 text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
+                            <div className="d-flex mb-2">
+                                <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
+                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-12 mb-2">
+                        <div className="card my-request-card pl-2">
+                            <h5 className="text-left mb-0 mt-2 req-title">I need a blanket for this cold weather</h5>
+                            <p className="text-left mb-0"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="text-left mb-0"><strong>Type:</strong> Material</p>
+                            <p className="text-left mb-0"><strong>Status:</strong><span className="text-danger"> Unfulfill</span></p>
+                            <p className="text-left mb-0 text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
+                            <div className="d-flex mb-2">
+                                <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
+                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-12 mb-2">
+                        <div className="card my-request-card pl-2">
+                            <h5 className="text-left mb-0 mt-2 req-title">I need a blanket for this cold weather</h5>
+                            <p className="text-left mb-0"><strong>Request by:</strong> Jane Doe (You)</p>
+                            <p className="text-left mb-0"><strong>Type:</strong> One-time</p>
+                            <p className="text-left mb-0"><strong>Status:</strong><span className="text-success"> Fulfilled</span></p>
+                            <p className="text-left mb-0 text-truncate"><strong>Description:</strong> <br/>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt expedita unde laboriosam eos tempore. Nostrum?</p>
+                            <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
+                            <div className="d-flex mb-2">
+                                <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
+                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
                             </div>
                         </div>
                     </div>
