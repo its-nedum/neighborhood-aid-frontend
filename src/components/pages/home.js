@@ -5,6 +5,7 @@ import account from '../../images/account.png'
 import request from '../../images/request.png'
 import volunteer from '../../images/volunteer.png'
 import Navbar from '../layouts/navbar'
+import Counter from '../layouts/counter'
 
 const Home = (props) => {
     return (
@@ -23,6 +24,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
+            <Counter />
             <div className="second-section container-fluid pt-4 pb-4 mb-5">
                 <h1 className="second-section-heading">Together We Can Help Our Community</h1>
                 <p className="second-section-text">Technology can be used in many ways, but it's best used to help people.<br/> This can be at the global level, or it can be used to make a difference right outside your door!</p>
@@ -43,27 +45,33 @@ const Home = (props) => {
             </div>
             <div className="third-section container mt-5 mb-5">
                 <div className="row">
-                    <div className="col-12 col-md-4 card">
-                        <img src={account} alt="account-pix" className="img-fluid" />
-                        <div className="card-body">
-                            <h5 className="card-heading">Create <br/> an Account</h5>
-                            <p className="card-text">
-                            Create an account with your first name, last name, email address and upload a copy of any government approved ID.
-                            </p>
+                    <div className="col-12 col-md-4">
+                        <div className="card">
+                            <img src={account} alt="account-pix" className="img-fluid" />
+                            <div className="card-body">
+                                <h5 className="card-heading">Create <br/> an Account</h5>
+                                <p className="card-text">
+                                Create an account with your first name, last name, email address and upload a copy of any government approved ID.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4 card">
-                        <img src={volunteer} alt="volunteer-pix" className="img-fluid" />
-                        <div className="card-body">
-                            <h5 className="card-heading">Volunteer <br/> to Help</h5>
-                            <p className="card-text">Use the geolocalized map with markers on it indicating people in need of community help.</p>
+                    <div className="col-12 col-md-4">
+                        <div className="card">
+                            <img src={volunteer} alt="volunteer-pix" className="img-fluid" />
+                            <div className="card-body">
+                                <h5 className="card-heading">Volunteer <br/> to Help</h5>
+                                <p className="card-text">Use the geolocalized map with markers on it indicating people in need of help in your community.</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4 card">
-                        <img src={request} alt="request-pix" className="img-fluid" />
-                        <div className="card-body">
-                            <h5 className="card-heading">Request <br/> for Help</h5>
-                            <p className="card-text">Submit a request for help with a brief description, type of request and your location.</p>
+                    <div className="col-12 col-md-4">
+                        <div className="card">
+                            <img src={request} alt="request-pix" className="img-fluid" />
+                            <div className="card-body">
+                                <h5 className="card-heading">Request <br/> for Help</h5>
+                                <p className="card-text">Submit a request for help with a brief description, type of request and your location.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
