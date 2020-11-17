@@ -2,12 +2,12 @@ import React from 'react'
 import Navbar from '../../layouts/navbar'
 import { isLoggedIn } from "../../services/utilities"
 import {Redirect, Link} from 'react-router-dom'
-import '../../../styles/allMyVolunteers.css'
+import '../../../styles/requestVolunteers.css'
 
 /* This component holds all the volunteers to the logged in user's request
     with a button to redirect to the chat(Message Component) between him and his volunteer
 */
-const AllMyVolunteers = (props) => {
+const RequestVolunteers = (props) => {
     if(!isLoggedIn()) return <Redirect to='/' />
     return (
         <div>
@@ -85,4 +85,4 @@ const AllMyVolunteers = (props) => {
     )
 }
 
-export default AllMyVolunteers
+export default RequestVolunteers
