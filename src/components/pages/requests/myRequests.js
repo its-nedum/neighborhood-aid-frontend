@@ -22,7 +22,8 @@ const MyRequests = (props) => {
                             <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
                             <div className="d-flex mb-2">
                                 <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
-                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                                <Link to="/request/my-volunteers" className="btn btn-secondary btn-sm ml-1">Volunteers</Link>
+                                <Link to="#" className="btn btn-success btn-sm ml-1">Mark as Fulfilled</Link>
                             </div>
                         </div>
                     </div>
@@ -36,7 +37,8 @@ const MyRequests = (props) => {
                             <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
                             <div className="d-flex mb-2">
                                 <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
-                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                                <Link to="/request/my-volunteers" className="btn btn-secondary btn-sm ml-1">Volunteers</Link>
+                                <Link to="#" className="btn btn-success btn-sm ml-1">Mark as Fulfilled</Link>
                             </div>
                         </div>
                     </div>
@@ -50,7 +52,8 @@ const MyRequests = (props) => {
                             <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
                             <div className="d-flex mb-2">
                                 <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
-                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                                <Link to="/request/my-volunteers" className="btn btn-secondary btn-sm ml-1">Volunteers</Link>
+                                <Link to="#" className="btn btn-success btn-sm ml-1">Mark as Fulfilled</Link>
                             </div>
                         </div>
                     </div>
@@ -64,7 +67,8 @@ const MyRequests = (props) => {
                             <p className="text-left mb-0"><strong>Created:</strong> November 08, 2020 01:00pm</p>
                             <div className="d-flex mb-2">
                                 <Link to="/request/1/i-need-a-blanket" className="btn btn-info btn-sm mr-1">View Request</Link>
-                                <Link to="#" className="btn btn-secondary btn-sm ml-1">View Chat</Link>
+                                <Link to="/request/my-volunteers" className="btn btn-secondary btn-sm ml-1">Volunteers</Link>
+                                <Link to="#" className="btn btn-success btn-sm ml-1">Mark as Fulfilled</Link>
                             </div>
                         </div>
                     </div>
