@@ -2,13 +2,14 @@ import React from 'react'
 import Navbar from '../../layouts/navbar'
 import { isLoggedIn } from "../../services/utilities"
 import {Redirect} from 'react-router-dom'
+import '../../../styles/message.css'
 
 const Message = (props) => {
     if(!isLoggedIn()) return <Redirect to='/' />
     return (
         <div>
             <Navbar ownProps={props}/>
-            <div className="container-fluid mt-5" style={{height:'100vh'}}>
+            <div className="container mt-5 message-container">
                 <div className="row">
                     <div className="col-12 col-md-4 mb-3 order-2 order-md-1">
                         <div className="about-request">
@@ -26,7 +27,20 @@ const Message = (props) => {
                     </div>
                     <div className="col-12 col-md-8 mb-3 order-1 order-md2">
                         <div className="card">
-                            Hello world!
+                            <div className="chat-head">
+                                <h5>Chinedu Emesue</h5>
+                            </div>
+                            <div className="chat-body">
+                                
+                            </div>
+                            <div className="chat-action">
+                                <div className="text-input">
+                                    <input type="text" className="form-control" placeholder="type your messages here..." />
+                                </div>
+                                <div className="chat-btn">
+                                    <button className="form-control">Send</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

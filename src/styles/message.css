@@ -1,0 +1,31 @@
+.message-container {
+    min-height: 100vh;
+}
+.chat-head {
+    background-color: #083E9E;
+    color: #fff;
+}
+
+.chat-body {
+    background-color: #F7F0F0;
+    min-height: 300px;
+}
+
+.chat-action {
+    background-color: #083E9E;
+    display: flex;
+    flex-flow:nowrap;
+    justify-content: center;
+    min-height: 50px;
+    align-items: center;
+}
+
+.chat-action  .text-input {
+    flex-grow: 10;
+    margin-left: 5px;
+}
+
+.chat-action .chat-btn {
+    flex-grow: 1;
+    margin-right: 5px;
+}

@@ -1,11 +1,6 @@
-.signin-banner {
+.signin-banner, .signup-banner {
     width: 100%;
-    height: 100vh;
-    background-color: #083E9E;
-}
-
-.signup-banner {
-    width: 100%;
+    min-height: 100vh;
     background-color: #083E9E;
 }
 
