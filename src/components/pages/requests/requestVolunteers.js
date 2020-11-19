@@ -12,7 +12,7 @@ const RequestVolunteers = (props) => {
     return (
         <div>
             <Navbar ownProps={props}/>
-            <div className="container mt-3 mb-5" style={{height:'100vh'}}>
+            <div className="container mt-3 mb-5" style={{minHeight:'100vh'}}>
                 <h4 className="my-request-heading">My Volunteers</h4>
                 <h5>I need a blanket for this cold weather</h5>
                 <div className="row mb-2">

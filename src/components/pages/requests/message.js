@@ -11,7 +11,7 @@ const Message = (props) => {
             <Navbar ownProps={props}/>
             <div className="container mt-5 message-container">
                 <div className="row">
-                    <div className="col-12 col-md-4 mb-3 order-2 order-md-1">
+                    <div className="col-12 col-md-4 mb-4 order-2 order-md-1">
                         <div className="about-request">
                             <div className="card pl-2 pr-2">
                                 <div className="about-body">
@@ -25,13 +25,75 @@ const Message = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-8 mb-3 order-1 order-md2">
+                    <div className="col-12 col-md-8 mb-4 order-1 order-md-2">
                         <div className="card">
                             <div className="chat-head">
                                 <h5>Chinedu Emesue</h5>
                             </div>
                             <div className="chat-body">
-                                
+                                <div>
+                                    <div className="messageContainer justifyEnd">
+                                        <p className="sentText pr-10"> 09:34am </p>
+                                        <div className="messageBox backgroundBlue">
+                                            <p className="messageText colorWhite">Hello world Lorem ipsum dolor.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="messageContainer justifyStart">
+                                        <div className="messageBox backgroundLight">
+                                            <p className="messageText colorDark">Hey world Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                                        </div>
+                                        <p className="sentText pl-10"> 09:37am </p>
+                                    </div>
+
+                                    <div className="messageContainer justifyEnd">
+                                        <p className="sentText pr-10"> 09:34am </p>
+                                        <div className="messageBox backgroundBlue">
+                                            <p className="messageText colorWhite">Hello world Lorem ipsum dolor sit amet consectetur.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="messageContainer justifyEnd">
+                                        <p className="sentText pr-10"> 09:34am </p>
+                                        <div className="messageBox backgroundBlue">
+                                            <p className="messageText colorWhite">Hello world Lorem ipsum dolor.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="messageContainer justifyStart">
+                                        <div className="messageBox backgroundLight">
+                                            <p className="messageText colorDark">Hey world Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                                        </div>
+                                        <p className="sentText pl-10"> 09:37am </p>
+                                    </div>
+
+                                    <div className="messageContainer justifyEnd">
+                                        <p className="sentText pr-10"> 09:34am </p>
+                                        <div className="messageBox backgroundBlue">
+                                            <p className="messageText colorWhite">Hello world Lorem ipsum dolor sit amet consectetur.</p>
+                                        </div>
+                                    </div>
+                                    <div className="messageContainer justifyEnd">
+                                        <p className="sentText pr-10"> 09:34am </p>
+                                        <div className="messageBox backgroundBlue">
+                                            <p className="messageText colorWhite">Hello world Lorem ipsum dolor.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="messageContainer justifyStart">
+                                        <div className="messageBox backgroundLight">
+                                            <p className="messageText colorDark">Hey world Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                                        </div>
+                                        <p className="sentText pl-10"> 09:37am </p>
+                                    </div>
+
+                                    <div className="messageContainer justifyEnd">
+                                        <p className="sentText pr-10"> 09:34am </p>
+                                        <div className="messageBox backgroundBlue">
+                                            <p className="messageText colorWhite">Hello world Lorem ipsum dolor sit amet consectetur.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div className="chat-action">
                                 <div className="text-input">

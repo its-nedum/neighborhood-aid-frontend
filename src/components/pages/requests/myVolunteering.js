@@ -8,7 +8,7 @@ const MyVolunteering = (props) => {
     return (
         <div>
             <Navbar ownProps={props}/>
-            <div className="container mt-3 mb-5">
+            <div className="container mt-3 mb-5 myVolunteering">
                 <h4 className="my-request-heading">My Volunteering</h4>
                 <div className="row mb-2">
                     <div className="col-12 mb-2">

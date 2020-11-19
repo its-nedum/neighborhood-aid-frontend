@@ -26,7 +26,7 @@ const Request = (props) => {
                                     <label>Type<span className="text-danger">*</span></label>
                                     <select type="text" className="form-control">
                                         <option>select request type...</option>
-                                        <option>Service</option>
+                                        <option>One-time</option>
                                         <option>Material</option>
                                     </select>
                                 </div>

@@ -54,8 +54,8 @@ const Navbar = ({ownProps}) => {
                             Jane Doe
                             </NavLink>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <Link className="dropdown-item" to="#">My Profile</Link>
-                            <Link className="dropdown-item" to="#">Settings</Link>
+                            {/* <Link className="dropdown-item" to="#">My Profile</Link>
+                            <Link className="dropdown-item" to="#">Settings</Link> */}
                             <Link className="dropdown-item" to="#" onClick={logout}>Logout</Link>
                             </div>
                         </li>
