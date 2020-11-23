@@ -1,3 +1,7 @@
+.full-screen {
+    min-height: 100vh;
+}
+
 .about-heading {
     font-size: 35px;
     line-height: 40px;
