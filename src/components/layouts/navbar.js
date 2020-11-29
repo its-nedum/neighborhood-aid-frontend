@@ -44,10 +44,10 @@ const Navbar = ({ownProps}) => {
                             <NavLink className="nav-link other-btn" to="/request/new">Create a request</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link other-btn" to="/users/requests">My Requests</NavLink>
+                            <NavLink className="nav-link other-btn" to="/users/activities">My Activities</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link other-btn" to="/users/volunteering">My Volunteering</NavLink>
+                            <NavLink className="nav-link other-btn" to="/users/messages">Messages <span className="badge badge-light text-danger">3</span></NavLink>
                         </li>
                         <li className="nav-item dropdown">
                             <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -31,7 +31,7 @@ const Request = (props) => {
     return (
         <div>
         <Navbar ownProps={props}/>
-        <div className="container-fluid mb-3">
+        <div className="container-fluid mb-3" style={{minHeight: '100vh'}}>
                 <div className="row pl-3">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
