@@ -40,9 +40,9 @@ const Navbar = ({ownProps}) => {
                         <li className="nav-item">
                             <NavLink className="nav-link other-btn" to="/me/dashboard">Requests Map</NavLink>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link other-btn" to="/request/new">Create a request</NavLink>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <NavLink className="nav-link other-btn" to="/users/activities">My Activities</NavLink>
                         </li>

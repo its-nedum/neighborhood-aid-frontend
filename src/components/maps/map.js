@@ -6,7 +6,7 @@ import Spinner from "./spinner"
 // set map container size
 const containerStyle = {
     width: '100%',
-    height: '100vh'
+    minHeight: '100vh'
   };
 
 const Map = () => {
