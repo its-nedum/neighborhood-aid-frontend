@@ -24,9 +24,9 @@ const Map = () => {
 
     // make api call to backend to get requests details and location
     const locations = [
-        {id: 1, title: 'lorem-req-1', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8471, lng: 7.8776}, type:'One time', status: 'Unfulfilled'},
+        {id: 1, title: 'lorem-req-1', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor', coords:{lat: 8.8471, lng: 7.8776}, type:'One-time', status: 'Unfulfilled'},
         {id: 2, title: 'lorem-req-2', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 9.0787, lng: 7.4702}, type:'Material', status: 'Unfulfilled'},
-        {id: 3, title: 'lorem-req-3', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8764, lng: 7.2437}, type:'One time', status: 'Unfulfilled'},
+        {id: 3, title: 'lorem-req-3', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8764, lng: 7.2437}, type:'One-time', status: 'Unfulfilled'},
     ]
 
     /* When a logged in user allows their browser to access their current
@@ -70,11 +70,21 @@ const showMap = () => {
                 center={center} zoom={9}    
                 >
                 {locations.map((place) => (
+                    place.type === 'Material' ?
                     <Marker 
                         key={place.id} 
                         position={place.coords}
                         onLoad={(marker) => markerLoadHandler(marker, place)}
                         onClick={(event) => markerClickHandler(event, place)} 
+                        icon={`https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png`}
+                        /> 
+                        : 
+                    <Marker 
+                        key={place.id} 
+                        position={place.coords}
+                        onLoad={(marker) => markerLoadHandler(marker, place)}
+                        onClick={(event) => markerClickHandler(event, place)} 
+                        icon={`https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png`}
                         />
                 ))}
 

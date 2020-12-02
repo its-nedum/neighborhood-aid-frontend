@@ -44,8 +44,9 @@ const Home = (props) => {
                 </div>
             </div>
             <div className="third-section container mt-5 mb-5">
+            <h1 className="second-section-heading">How It Works</h1>
                 <div className="row">
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-4 mb-2">
                         <div className="card">
                             <img src={account} alt="account-pix" className="img-fluid" />
                             <div className="card-body">
@@ -56,7 +57,7 @@ const Home = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-4 mb-2">
                         <div className="card">
                             <img src={volunteer} alt="volunteer-pix" className="img-fluid" />
                             <div className="card-body">
@@ -65,7 +66,7 @@ const Home = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-md-4">
+                    <div className="col-12 col-md-4 mb-2">
                         <div className="card">
                             <img src={request} alt="request-pix" className="img-fluid" />
                             <div className="card-body">

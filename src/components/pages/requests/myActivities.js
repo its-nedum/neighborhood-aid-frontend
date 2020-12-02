@@ -11,7 +11,7 @@ const MyActivities = (props) => {
             <Navbar ownProps={props}/>
             <div className="container mt-3 mb-5 myRequests">
                 <div className="row">
-                   <div className="col-6">
+                   <div className="col-12 col-md-6">
                    <h5 className="my-request-heading">My Requests</h5>
                     <div className="row mb-2">
                         <div className="col-12 mb-2">
@@ -47,7 +47,7 @@ const MyActivities = (props) => {
                     </div>
                     </div> 
 
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                     <h5 className="my-request-heading">My Volunteering</h5>
                     <div className="row mb-2">
                         <div className="col-12 mb-2">

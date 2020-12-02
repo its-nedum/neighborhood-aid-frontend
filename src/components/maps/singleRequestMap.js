@@ -20,7 +20,10 @@ const displayMap = () => {
     return (
         <Fragment>
             <GoogleMap mapContainerStyle={containerStyle} center={place} zoom={9}>
-                    <Marker position={place}>
+                    <Marker 
+                        position={place}
+                        icon={`https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png`}
+                        >
                     <InfoWindow>
                         <div>
                             <h6 className="text-left map-req-title">I need a blanket for this weather</h6>
