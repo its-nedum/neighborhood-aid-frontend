@@ -1,23 +1,23 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, Suspense, lazy} from 'react'
 import '../../styles/home.css'
 import { Link } from 'react-router-dom'
 import account from '../../images/account.png'
 import request from '../../images/request.png'
 import volunteer from '../../images/volunteer.png'
 import Navbar from '../layouts/navbar'
-import Counter from '../layouts/counter'
-
 import { connect } from "react-redux";
 import { requestCounter } from "../../store/actions/requestAction";
 import { userCounter } from "../../store/actions/userAction";
 
+const Counter = lazy(() => import("../layouts/counter"))
+
 const Home = (props) => {
-    console.log(props)
     const { requestCounter, userCounter, request_counter, user_counter } = props
 
     useEffect(() => {
         requestCounter();
         userCounter();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -36,7 +36,9 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
-            <Counter request={request_counter} user={user_counter}/>
+            <Suspense fallback={<div>Loading...</div>}>
+               { user_counter && <Counter request={request_counter} user={user_counter}/> }
+            </Suspense>
             <div className="second-section container-fluid pt-4 pb-4 mb-5">
                 <h1 className="second-section-heading">Together We Can Help Our Community</h1>
                 <p className="second-section-text">Technology can be used in many ways, but it's best used to help people.<br/> This can be at the global level, or it can be used to make a difference right outside your door!</p>
