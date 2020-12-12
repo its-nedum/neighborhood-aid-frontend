@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import '../../styles/home.css'
 import { Link } from 'react-router-dom'
 import account from '../../images/account.png'
@@ -7,7 +7,19 @@ import volunteer from '../../images/volunteer.png'
 import Navbar from '../layouts/navbar'
 import Counter from '../layouts/counter'
 
+import { connect } from "react-redux";
+import { requestCounter } from "../../store/actions/requestAction";
+import { userCounter } from "../../store/actions/userAction";
+
 const Home = (props) => {
+    console.log(props)
+    const { requestCounter, userCounter, request_counter, user_counter } = props
+
+    useEffect(() => {
+        requestCounter();
+        userCounter();
+    }, [])
+
     return (
         <div>
             <Navbar ownProps={props}/>
@@ -24,7 +36,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
-            <Counter />
+            <Counter request={request_counter} user={user_counter}/>
             <div className="second-section container-fluid pt-4 pb-4 mb-5">
                 <h1 className="second-section-heading">Together We Can Help Our Community</h1>
                 <p className="second-section-text">Technology can be used in many ways, but it's best used to help people.<br/> This can be at the global level, or it can be used to make a difference right outside your door!</p>
@@ -82,4 +94,17 @@ const Home = (props) => {
     )
 }
 
-export default Home
+const mapStateToProps = (state) => {
+    return {
+        request_counter: state.request.request_counter,
+        user_counter: state.user.user_counter,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        requestCounter: () => dispatch(requestCounter()),
+        userCounter: () => dispatch(userCounter()),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
