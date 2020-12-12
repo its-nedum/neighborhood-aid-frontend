@@ -34,6 +34,16 @@ const userReducer = (state = initState, action) => {
             return {
                 ...state,
                 notification: action.message
+            }
+        case "SIGNUP_SUCCESS":
+            return {
+                ...state,
+                notification: action.message
+            }
+        case "SIGNUP_ERROR":
+            return {
+                ...state,
+                notification: action.message
             }        
         default:
         return state

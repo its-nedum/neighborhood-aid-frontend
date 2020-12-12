@@ -1,8 +1,15 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Navbar from '../../layouts/navbar'
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
+import { connect } from "react-redux"
+import { signup } from "../../../store/actions/userAction"
+import processing from "../../../images/loader.gif"
 
 const Signup = (props) => {
+    const {signup, notification } = props
+
     //setup our states using hooks
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,27 +28,32 @@ const Signup = (props) => {
             return false;
         }
 
+        // check if the email is valid
+        if (/\S+@\S+\.\S+/.test(email) === false) {
+            setError('*Enter a valid email address')
+            return false;
+        }
+
+        // check password length
+        if (password.length < 6) {
+            setError('*Password must be maximum of 6 characters')
+            return false;
+        }
+
         // if all data is provided
         if (email && password && firstname && lastname && image){
             setError("")
 
             // prepare the data
-            const user = {
-                firstname,
-                lastname,
-                image,
-                email,
-                password
-            }
-
+            let user = new FormData()
+            user.append('firstname', firstname)
+            user.append('lastname', lastname)
+            user.append('image', image)
+            user.append('email', email)
+            user.append('password', password)
+            
             // send details to be processed
-            console.log(user)
-
-            // redirect
-            setTimeout(() => {
-                localStorage.setItem('NeighborhoodToken', 'vcvBNnBAIzaSyb4KBnMCyFK-P0Xnbl9f_NX09YhDc')
-                props.history.push("/me/dashboard")
-                }, 2000);
+            signup(user)
 
             // clear fields
             setEmail("")
@@ -58,10 +70,11 @@ const Signup = (props) => {
                 <div className="row pl-3">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
+                        <ToastContainer />
                         <form className="card mt-5 pl-3">
                             <h1 className="auth-heading">Create Your Account</h1>
                             <p className="auth-text">Welcome to a better way to exchange acts of kindness</p>
-                            <p className="float-left text-danger">{error}</p>
+                            <p className="text-left text-danger">{error}</p>
                             <div className="row input-group">
                                 <div className="col-12 col-md-6 mb-3">
                                     <label>First Name</label>
@@ -92,7 +105,8 @@ const Signup = (props) => {
                             </div>
                             <div className="row btn-group pr-4">
                                 <div className="col-12 mb-3">
-                                    <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>{btnValue}</button>
+                                    { notification ? <img src={processing} style={{height:'70px'}} alt="processing-loader"/> :
+                                    <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>{btnValue}</button> }
                                 </div>
                             </div>
                             <div className="row input-group pl-3 mb-3">
@@ -107,4 +121,16 @@ const Signup = (props) => {
     )
 }
 
-export default Signup
+const mapStateToProps = (state) => {
+    return {
+        notification: state.user.notification,
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        signup: (user) => dispatch(signup(user, ownProps))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

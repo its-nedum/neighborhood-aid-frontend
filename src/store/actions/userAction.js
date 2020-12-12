@@ -50,3 +50,31 @@ export const login = (user, ownProps) => {
         })
     }
 }
+
+export const signup = (user, ownProps) => {
+    return (dispatch) => {
+        dispatch({type: "PROCESSING"})
+        axios({
+            method: "POST",
+            url: "http://localhost:3001/api/v1/users",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: user
+        }).then((response) => {
+            const { token, message } = response.data
+            dispatch({type: "SIGNUP_SUCCESS", message})
+            dispatch({type: "DONE"})
+            saveToken(token)
+            successMsg(message)
+            setTimeout(() => {
+                ownProps.history.push("/me/dashboard")
+            }, 2000);
+        }).catch((error) => {
+            const { message } = error.response.data
+            errorMsg(message)
+            dispatch({type: "SIGNUP_ERROR", message})
+            dispatch({type: "DONE"})
+        })
+    }
+}

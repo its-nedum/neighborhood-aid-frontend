@@ -79,7 +79,7 @@ const Signin = (props) => {
                             </div>
                             <div className="row btn-group pr-4">
                                 <div className="col-12 mb-3">
-                                    { notification ? <img src={processing} style={{height:'70px'}}/> :
+                                    { notification ? <img src={processing} style={{height:'70px'}} alt="processing-loader"/> :
                                     <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>{btnValue}</button>}
                                 </div>
                             </div>
