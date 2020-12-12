@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../layouts/navbar'
-import { isLoggedIn } from "../../services/utilities"
+import { isLoggedIn } from "../../../services/utilities"
 import {Redirect, Link} from 'react-router-dom'
 import "../../../styles/myActivities.css"
 

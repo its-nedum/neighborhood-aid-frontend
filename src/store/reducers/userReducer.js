@@ -1,5 +1,5 @@
 const initState = {
-    notification: null,
+    notification: false,
     user_counter: [],
 }
 
@@ -15,7 +15,26 @@ const userReducer = (state = initState, action) => {
                 ...state,
                 notification: action.message
             }
-            
+        case "PROCESSING":
+            return {
+                ...state,
+                notification: true
+            }  
+        case "DONE":
+            return {
+                ...state,
+                notification: false
+            }
+        case "LOGIN_SUCCESS":
+            return {
+                ...state,
+                notification: action.message
+            }
+        case "LOGIN_ERROR":
+            return {
+                ...state,
+                notification: action.message
+            }        
         default:
         return state
     }

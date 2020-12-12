@@ -1,13 +1,13 @@
 import React from 'react'
 import {NavLink, Link } from 'react-router-dom'
 import '../../styles/navbar.css'
-import { isLoggedIn } from "../services/utilities"
+import { isLoggedIn } from "../../services/utilities"
 
 const Navbar = ({ownProps}) => {
 
     const logout = () => {
         // remove auth token
-        localStorage.removeItem('NeighborhoodToken')
+        localStorage.removeItem('Aid-Auth')
         // redirect
         ownProps.history.push("/")
     }

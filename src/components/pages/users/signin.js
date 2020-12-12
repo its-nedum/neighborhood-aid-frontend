@@ -2,8 +2,17 @@ import React, {useState} from 'react'
 import '../../../styles/signin.css'
 import {Link} from 'react-router-dom'
 import Navbar from '../../layouts/navbar'
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
+import { connect } from "react-redux"
+import { login } from "../../../store/actions/userAction"
+import processing from "../../../images/loader.gif"
+
 
 const Signin = (props) => {
+    console.log(props)
+    const { login, notification } = props
+
     //setup our states using hooks
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,6 +28,12 @@ const Signin = (props) => {
             return false;
         }
 
+        // check if the email is valid
+        if (/\S+@\S+\.\S+/.test(email) === false) {
+            setError('*Enter a valid email address')
+            return false;
+        }
+
         // if all data is provided
         if (email && password){
             setError("")
@@ -30,13 +45,7 @@ const Signin = (props) => {
             }
 
             // send details to be processed
-            console.log(user)
-
-            // redirect
-            setTimeout(() => {
-                localStorage.setItem('NeighborhoodToken', 'vcvBNnBAIzaSyb4K-BnMCyFKP0Xnbl9f_NX09YhDc')
-                props.history.push("/me/dashboard")
-                }, 2000);
+            login(user)
 
             // clear fields
             setEmail("")
@@ -51,10 +60,11 @@ const Signin = (props) => {
                 <div className="row pl-3">
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
+                        <ToastContainer />
                         <form className="card mt-5 pl-3">
                             <h1 className="auth-heading">Login To Your Account</h1>
                             <p className="auth-text">Securely login to your Nieghborhood Aid</p>
-                            <p className="float-left text-danger">{error}</p>
+                            <p className="text-left text-danger">{error}</p>
                             <div className="row input-group">
                                 <div className="col-12 mb-3">
                                     <label>Email</label>  
@@ -69,7 +79,8 @@ const Signin = (props) => {
                             </div>
                             <div className="row btn-group pr-4">
                                 <div className="col-12 mb-3">
-                                    <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>{btnValue}</button>
+                                    { notification ? <img src={processing} style={{height:'70px'}}/> :
+                                    <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>{btnValue}</button>}
                                 </div>
                             </div>
                             <div className="row input-group pl-3 mb-3">
@@ -84,4 +95,16 @@ const Signin = (props) => {
     )
 }
 
-export default Signin
+const mapStateToProps = (state) => {
+    return {
+        notification: state.user.notification,
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        login: (user) => dispatch(login(user, ownProps))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signin)

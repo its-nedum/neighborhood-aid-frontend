@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../layouts/navbar'
 import "../../../styles/singleRequest.css"
-import { isLoggedIn } from "../../services/utilities"
+import { isLoggedIn } from "../../../services/utilities"
 import {Redirect} from 'react-router-dom'
 import SingleRequestMap from "../../maps/singleRequestMap"
 
