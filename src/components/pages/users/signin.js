@@ -10,7 +10,6 @@ import processing from "../../../images/loader.gif"
 
 
 const Signin = (props) => {
-    console.log(props)
     const { login, notification } = props
 
     //setup our states using hooks

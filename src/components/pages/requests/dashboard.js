@@ -1,28 +1,53 @@
-import React from 'react'
+import React, {useEffect, Suspense, lazy} from 'react'
 import "../../../styles/dashboard.css"
 import Navbar from '../../layouts/navbar'
-import Map from "../../maps/map"
 import { isLoggedIn } from "../../../services/utilities"
 import {Redirect} from 'react-router-dom'
-import Form from './reqForm'
+import Spinner from "../../maps/spinner"
+import { connect } from "react-redux"
+import { getRequest } from "../../../store/actions/requestAction"
+
+const Map = lazy(() => import("../../maps/map"))
+const Form = lazy(() => import("./reqForm"))
 
 const Dashboard = (props) => {
+    const { getRequest, requests } = props
+// console.log(props)
+    useEffect(() => {
+        getRequest()
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     if(!isLoggedIn()) return <Redirect to='/' />
     return (
         <div>
             <Navbar ownProps={props}/>
             <div className="dashboard">
                 <div className="row d-flex">
-                    <div className="col-12 col-md-5 order-2 order-md-1">
-                        <Form />
-                    </div>
-                    <div className="col-12 col-md-7 order-1 order-md-2">
-                        <Map />
-                    </div>
+                    <Suspense fallback={<Spinner />}>
+                        <div className="col-12 col-md-5 order-2 order-md-1">
+                            <Form />
+                        </div>
+                        <div className="col-12 col-md-7 order-1 order-md-2">
+                            { requests && <Map requests={requests} /> }
+                        </div>
+                    </Suspense>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Dashboard
+const mapStateToProps = (state) => {
+    return {
+        requests: state.request.requests,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getRequest: () => dispatch(getRequest())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

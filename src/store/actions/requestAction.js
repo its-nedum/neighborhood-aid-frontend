@@ -1,5 +1,5 @@
 import axios from "axios"
-
+import { setAuthToken } from "../../services/utilities"
 
 export const requestCounter = () => {
     return (dispatch) => {
@@ -15,6 +15,25 @@ export const requestCounter = () => {
         }).catch((error) => {
             const { message } = error.response.data;
             dispatch({type: "REQUEST_COUNTER_ERROR", message})
+        })
+    }
+}
+
+export const getRequest = () => {
+    return (dispatch) => {
+        axios({
+            method: "GET",
+            url: "http://localhost:3001/api/v1/requests",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+        }).then((response) => {
+            const { data } = response;
+            dispatch({type: "GET_REQUEST_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "GET_REQUEST_ERROR", message})
         })
     }
 }

@@ -1,6 +1,7 @@
 const initState = {
     notification: null,
     request_counter: [],
+    requests: [],
 }
 
 const requestReducer = (state = initState, action) => {
@@ -15,7 +16,16 @@ const requestReducer = (state = initState, action) => {
                 ...state,
                 notification: action.message
             }
-
+        case "GET_REQUEST_SUCCESS":
+            return {
+                ...state,
+                requests: action.data
+            }
+        case "GET_REQUEST_ERROR":
+            return {
+                ...state,
+                notification: action.message
+            }
         default:
         return state
     }

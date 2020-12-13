@@ -9,8 +9,8 @@ const containerStyle = {
     minHeight: '100vh'
   };
 
-const Map = () => {
-
+const Map = ({ requests }) => {
+// console.log(requests)
     // pass google map api key to load the Google Maps script
     const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY })
 
@@ -23,25 +23,25 @@ const Map = () => {
     const [center, setCenter] = useState({lat: 9.0820,lng: 8.6753})
 
     // make api call to backend to get requests details and location
-    const locations = [
-        {id: 1, title: 'lorem-req-1', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor', coords:{lat: 8.8471, lng: 7.8776}, type:'One-time', status: 'Unfulfilled'},
-        {id: 2, title: 'lorem-req-2', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 9.0787, lng: 7.4702}, type:'Material', status: 'Unfulfilled'},
-        {id: 3, title: 'lorem-req-3', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8764, lng: 7.2437}, type:'One-time', status: 'Unfulfilled'},
-    ]
+    // const locations = [
+    //     {id: 1, title: 'lorem-req-1', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor', coords:{lat: 8.8471, lng: 7.8776}, type:'One-time', status: 'Unfulfilled'},
+    //     {id: 2, title: 'lorem-req-2', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 9.0787, lng: 7.4702}, type:'Material', status: 'Unfulfilled'},
+    //     {id: 3, title: 'lorem-req-3', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', coords:{lat: 8.8764, lng: 7.2437}, type:'One-time', status: 'Unfulfilled'},
+    // ]
 
     /* When a logged in user allows their browser to access their current
      location, the map automatically adjust to their geolocalised location
     */
-    useEffect(() => {
-        const getUserLocation = (position) => {
-            return setCenter({lat: position.coords.latitude, lng: position.coords.longitude})
-         }
-         if(navigator.geolocation){
-             navigator.geolocation.getCurrentPosition(getUserLocation)
-         }else{
-             console.log('Not supported')
-         }
-    },[])
+    // useEffect(() => {
+    //     const getUserLocation = (position) => {
+    //         return setCenter({lat: position.coords.latitude, lng: position.coords.longitude})
+    //      }
+    //      if(navigator.geolocation){
+    //          navigator.geolocation.getCurrentPosition(getUserLocation)
+    //      }else{
+    //          console.log('Not supported')
+    //      }
+    // },[])
 
     // mapping all of the places to actual Marker objects
     const markerLoadHandler = (marker, place) => {
@@ -61,7 +61,7 @@ const Map = () => {
 
         setInfoWindowOpen(true)
     }
-    
+
 const showMap = () => {
     return (
         <Fragment>
@@ -69,21 +69,21 @@ const showMap = () => {
                 mapContainerStyle={containerStyle} 
                 center={center} zoom={9}    
                 >
-                {locations.map((place) => (
-                    place.type === 'Material' ?
+                {requests.map((request) => (
+                    request.reqtype === 'material' ?
                     <Marker 
-                        key={place.id} 
-                        position={place.coords}
-                        onLoad={(marker) => markerLoadHandler(marker, place)}
-                        onClick={(event) => markerClickHandler(event, place)} 
+                        key={request.id} 
+                        position={{lat: request.lat, lng: request.lng}}
+                        onLoad={(marker) => markerLoadHandler(marker, request)}
+                        onClick={(event) => markerClickHandler(event, request)} 
                         icon={`https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png`}
                         /> 
                         : 
                     <Marker 
-                        key={place.id} 
-                        position={place.coords}
-                        onLoad={(marker) => markerLoadHandler(marker, place)}
-                        onClick={(event) => markerClickHandler(event, place)} 
+                        key={request.id} 
+                        position={{lat: request.lat, lng: request.lng}}
+                        onLoad={(marker) => markerLoadHandler(marker, request)}
+                        onClick={(event) => markerClickHandler(event, request)} 
                         icon={`https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png`}
                         />
                 ))}
@@ -93,10 +93,10 @@ const showMap = () => {
                         anchor={markerMap[selectedPlace.id]}
                         onCloseClick={() => setInfoWindowOpen(false)}>
                         <div>
-                        <h6 className="text-left">I need a blanket for this weather</h6>
-                        <p className="text-left">Chinedu Emesue</p>
+                        <h6 className="text-left">{selectedPlace.title}</h6>
+                        <p className="text-left">{`${selectedPlace.user.firstname} ${selectedPlace.user.lastname}`}</p>
                         <div className="d-flex justify-content-between">
-                            <p className=""><strong>Type: </strong>{selectedPlace.type}</p>
+                            <p className=""><strong>Type: </strong>{selectedPlace.reqtype}</p>
                             <p className=""><strong>Status: </strong>{selectedPlace.status}</p>
                         </div>
                         <p className="text-left">{selectedPlace.description}</p>
