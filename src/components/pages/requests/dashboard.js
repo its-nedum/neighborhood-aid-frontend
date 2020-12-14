@@ -6,12 +6,13 @@ import {Redirect} from 'react-router-dom'
 import Spinner from "../../maps/spinner"
 import { connect } from "react-redux"
 import { getRequest } from "../../../store/actions/requestAction"
+import Loader from "./loader"
 
 const Map = lazy(() => import("../../maps/map"))
 const Form = lazy(() => import("./reqForm"))
 
 const Dashboard = (props) => {
-    const { getRequest, requests } = props
+    const { getRequest, requests, loading } = props
 // console.log(props)
     useEffect(() => {
         getRequest()
@@ -19,6 +20,7 @@ const Dashboard = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     if(!isLoggedIn()) return <Redirect to='/' />
+    if(loading) return <Loader />
     return (
         <div>
             <Navbar ownProps={props}/>
@@ -41,6 +43,7 @@ const Dashboard = (props) => {
 const mapStateToProps = (state) => {
     return {
         requests: state.request.requests,
+        loading: state.request.loading,
     }
 }
 

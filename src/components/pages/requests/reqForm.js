@@ -8,6 +8,9 @@ const ReqForm = () => {
     const [description, setDescription] = useState("");
     const [address, setAddress] = useState("");
     const [location, setLocation] = useState({lat: null, lng: null});
+    const [error, setError] = useState("")
+    const [lat, setLat] = useState("")
+    const [lng, setLng] = useState("")
 
     const handleSelect = (value) => {
         geocodeByAddress(value)
@@ -15,12 +18,18 @@ const ReqForm = () => {
             getLatLng(results[0])
             .then(latlng => {
                 setAddress(value);
+                // split this into lat and lng
                 setLocation(latlng);
             }).catch(error => console.log({'latlng': error}))
         }).catch(error => console.log({'geocodeError': error}))
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // setup form validation
+
+        // send data to be processed
         console.log({title, type, description, location, address})
     }
     return (

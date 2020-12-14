@@ -70,6 +70,7 @@ const showMap = () => {
                 center={center} zoom={9}    
                 >
                 {requests.map((request) => (
+                    // request.reqtype === 'Material need' 
                     request.reqtype === 'material' ?
                     <Marker 
                         key={request.id} 
@@ -94,13 +95,18 @@ const showMap = () => {
                         onCloseClick={() => setInfoWindowOpen(false)}>
                         <div>
                         <h6 className="text-left">{selectedPlace.title}</h6>
+                        <p className="text-left"><i>{selectedPlace.address}</i></p>
                         <p className="text-left">{`${selectedPlace.user.firstname} ${selectedPlace.user.lastname}`}</p>
                         <div className="d-flex justify-content-between">
                             <p className=""><strong>Type: </strong>{selectedPlace.reqtype}</p>
-                            <p className=""><strong>Status: </strong>{selectedPlace.status}</p>
+                            {selectedPlace.status === 0 ? 
+                                <p className=""><strong>Status: </strong><span className="text-danger">Unfulfilled</span></p>
+                            : 
+                                <p className=""><strong>Status: </strong><span className="text-success">Fulfilled</span></p>
+                            }   
                         </div>
-                        <p className="text-left">{selectedPlace.description}</p>
-                        <Link className="btn btn-secondary btn-sm" to={`/request/${selectedPlace.id}/${selectedPlace.title}`}>Fulfill this need</Link>
+                        <p className="text-left">{selectedPlace.description}</p> 
+                        <Link className="btn btn-secondary btn-sm" to={`/request/${selectedPlace.id}/${selectedPlace.title.toLowerCase().split(' ').join('-')}`}>Fulfill this need</Link>
                         </div>
                     </InfoWindow>
                 )}
