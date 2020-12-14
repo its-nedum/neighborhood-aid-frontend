@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink, Link } from 'react-router-dom'
 import '../../styles/navbar.css'
-import { isLoggedIn } from "../../services/utilities"
+import { isLoggedIn, getUser } from "../../services/utilities"
 
 const Navbar = ({ownProps}) => {
 
@@ -51,7 +51,7 @@ const Navbar = ({ownProps}) => {
                         </li>
                         <li className="nav-item dropdown">
                             <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Jane Doe
+                            {`${getUser().firstname} ${getUser().lastname}`}
                             </NavLink>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                             {/* <Link className="dropdown-item" to="#">My Profile</Link>

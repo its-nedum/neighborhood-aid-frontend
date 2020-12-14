@@ -28,3 +28,8 @@ export const isLoggedIn = () => {
     }
         return true
 }
+
+export const getUser = () => {
+    const { user_id, firstname, lastname } = jwt_decode(getToken())
+    return {user_id, firstname, lastname}
+}

@@ -1,6 +1,7 @@
 const initState = {
     notification: false,
     user_counter: [],
+    user_loading: true,
 }
 
 const userReducer = (state = initState, action) => {
@@ -9,6 +10,7 @@ const userReducer = (state = initState, action) => {
             return {
                 ...state,
                 user_counter: action.data,
+                user_loading: false,
             }
         case "USER_COUNTER_ERROR":
             return {    

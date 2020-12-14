@@ -1,22 +1,57 @@
-import React, {useEffect, Suspense, lazy} from 'react'
+import React, {useEffect, Suspense, lazy, useState} from 'react'
 import Navbar from '../../layouts/navbar'
 import "../../../styles/singleRequest.css"
-import { isLoggedIn } from "../../../services/utilities"
+import { isLoggedIn, getUser } from "../../../services/utilities"
 import {Redirect} from 'react-router-dom'
 import { connect } from "react-redux"
 import { singleRequest } from "../../../store/actions/requestAction"
+import { sendMessage } from "../../../store/actions/messageAction"
+import { makeVolunteer } from "../../../store/actions/volunteerAction"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 import moment from "moment"
 import Loader from "./loader"
+import processing from "../../../images/loader.gif"
 
 const SingleRequestMap = lazy(() => import("../../maps/singleRequestMap"))
 
 //This page displays the request details
 const SingleRequest = (props) => {
-    const { singleRequest, request, loading, match:{params:{id}}} = props
-    
+    const { singleRequest, request, loading, match:{params:{id}}, sendMessage, makeVolunteer, volunteer_btn} = props
+
+    const [message, setMessage] = useState("")
+    const [error, setError] = useState("")
+
     useEffect(() => {
         singleRequest(id)
     }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if(!message){
+            setError("*A message is required")
+            return false;
+        }
+
+        if(message){
+            setError("")
+            let mesg = {
+                receiver_id: request.user_id,
+                content: message,
+                request_id: id
+            }
+
+            let volunteer = {
+                request_id: id,
+                requester_id: request.user_id
+            }
+
+            sendMessage(mesg)
+            makeVolunteer(volunteer)
+        }
+
+    }
 
     if(!isLoggedIn()) return <Redirect to='/' />
     if (loading) return <Loader />
@@ -31,18 +66,24 @@ const SingleRequest = (props) => {
                     <div className="col-12 col-md-7 mb-3">
                     <div className="card">
                         <form className="submit-help-form pl-2 pr-2">
+                            <ToastContainer />
                             <h5 className="text-left">Do You Want to Volunteer?</h5>
                             <div className="row input-group">
+                            <p className="text-left text-danger pl-3">{error}</p>
                                 <div className="col-12 mb-3">
-                                    <label>Message</label>
-                                    <textarea className="form-control" placeholder="Type message to the requester here..." aria-label="message" />
+                                    <label>Message<span className="text-danger">*</span></label>
+                                    <textarea className="form-control" value={message} onChange={e => setMessage(e.target.value)} placeholder="Type message to the requester here..." aria-label="message" />
                                 </div>
                             </div>
+                            {getUser().user_id === request.user_id ? <p className="text-danger">You can't volunteer on your own request.</p> :
                             <div className="row">
                                 <div className="btn-group col-12 col-md-4 mb-3">
-                                    <button type="button" className="form-control btn btn-success">SEND</button>
+                                { volunteer_btn ? <img src={processing} style={{height:'70px'}} alt="processing-loader"/> :
+                                    <button type="button" className="form-control btn btn-success" onClick={handleSubmit}>SEND</button>
+                                }
                                 </div>
                             </div>
+                            }
                         </form>
                         </div>
                     </div>
@@ -88,12 +129,15 @@ const mapStateToProps = (state) => {
     return {
         request: state.request.request,
         loading: state.request.single_loading,
+        volunteer_btn: state.volunteer.volunteer_btn,
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        singleRequest: (id) => dispatch(singleRequest(id))
+        singleRequest: (id) => dispatch(singleRequest(id)),
+        sendMessage: (mesg) => dispatch(sendMessage(mesg)),
+        makeVolunteer: (volunteer) => dispatch(makeVolunteer(volunteer, ownProps)),
     }
 }
 

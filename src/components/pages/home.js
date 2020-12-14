@@ -8,18 +8,20 @@ import Navbar from '../layouts/navbar'
 import { connect } from "react-redux";
 import { requestCounter } from "../../store/actions/requestAction";
 import { userCounter } from "../../store/actions/userAction";
+import Loader from "../pages/requests/loader"
 
 const Counter = lazy(() => import("../layouts/counter"))
 
 const Home = (props) => {
-    const { requestCounter, userCounter, request_counter, user_counter } = props
+    const { requestCounter, userCounter, request_counter, user_counter, loading } = props
 
     useEffect(() => {
         requestCounter();
         userCounter();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
+    
+    if(loading) return <Loader />
     return (
         <div>
             <Navbar ownProps={props}/>
@@ -100,6 +102,7 @@ const mapStateToProps = (state) => {
     return {
         request_counter: state.request.request_counter,
         user_counter: state.user.user_counter,
+        loading: state.user.user_loading,
     }
 }
 
