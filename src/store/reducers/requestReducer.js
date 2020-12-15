@@ -5,6 +5,8 @@ const initState = {
     request_counter: [],
     requests: [], // All requests
     request: [], // Single request
+    my_requests: [], // My requests
+    my_requests_loading: true,
 }
 
 const requestReducer = (state = initState, action) => {
@@ -37,6 +39,17 @@ const requestReducer = (state = initState, action) => {
                 single_loading: false,
             }
         case "SINGLE_REQUEST_ERROR":
+            return {
+                ...state,
+                notification: action.message
+            }
+        case "MY_REQUESTS_SUCCESS":
+            return {
+                ...state,
+                my_requests: action.data,
+                my_requests_loading: false,
+            }
+        case "MY_REQUESTS_ERROR":
             return {
                 ...state,
                 notification: action.message

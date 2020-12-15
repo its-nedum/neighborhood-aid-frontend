@@ -56,3 +56,22 @@ export const singleRequest = (id) => {
         })
     }
 }
+
+export const getMyRequests = () => {
+    return (dispatch) => {
+        axios({
+            method: "GET",
+            url: `http://localhost:3001/api/v1/my-requests`,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+        }).then((response) => {
+            const { data } = response.data;
+            dispatch({type: "MY_REQUESTS_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "MY_REQUESTS_ERROR", message})
+        })
+    }
+}

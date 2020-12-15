@@ -32,3 +32,22 @@ export const makeVolunteer = (volunteer, ownProps) => {
         })
     }
 }
+
+export const getMyVolunteerings = () => {
+    return (dispatch) => {
+        axios({
+            method: "GET",
+            url: `http://localhost:3001/api/v1/my-volunteerings`,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+        }).then((response) => {
+            const { data } = response;
+            dispatch({type: "MY_VOLUNTEERINGS_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "MY_VOLUNTEERINGS_ERROR", message})
+        })
+    }
+}

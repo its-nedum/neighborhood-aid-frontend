@@ -101,13 +101,18 @@ const SingleRequest = (props) => {
                             { request.volunteers.length !== 0 ?
                             <div className="table-responsive pl-2">
                                 <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Date & Time</th>
+                                    </tr>
+                                </thead>
                                     <tbody className="pl-2">
                                         {
                                             request.volunteers && request.volunteers.map((volunteer, index) => {
                                                 return(
                                                     <tr key={index}>
-                                                        <td>{index}</td>
-                                                        <td>{`${volunteer.user.firstname} ${volunteer.user.lastname}`}</td>
+                                                        <td className="text-left">{`${volunteer.user.firstname} ${volunteer.user.lastname}`}</td>
                                                         <td>{moment(volunteer.created_at).format('LLLL')}</td>
                                                     </tr>
                                                 )
