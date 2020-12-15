@@ -26,6 +26,11 @@ const SingleRequest = (props) => {
         singleRequest(id)
     }, [])
 
+    // This method uses the find array method to dictect if the user already volunteered
+    const algo = (volunteer) => {
+        return volunteer.user_id === getUser().user_id
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -75,14 +80,15 @@ const SingleRequest = (props) => {
                                     <textarea className="form-control" value={message} onChange={e => setMessage(e.target.value)} placeholder="Type message to the requester here..." aria-label="message" />
                                 </div>
                             </div>
-                            {getUser().user_id === request.user_id ? <p className="text-danger">You can't volunteer on your own request.</p> :
-                            <div className="row">
-                                <div className="btn-group col-12 col-md-4 mb-3">
-                                { volunteer_btn ? <img src={processing} style={{height:'70px'}} alt="processing-loader"/> :
-                                    <button type="button" className="form-control btn btn-success" onClick={handleSubmit}>SEND</button>
-                                }
+                            {request.volunteers.find(algo) ? <p className="text-danger">You have already volunteered for this request.</p> : 
+                                getUser().user_id === request.user_id ? <p className="text-danger">You can't volunteer on your own request.</p> :
+                                <div className="row">
+                                    <div className="btn-group col-12 col-md-4 mb-3">
+                                    { volunteer_btn ? <img src={processing} style={{height:'70px'}} alt="processing-loader"/> :
+                                        <button type="button" className="form-control btn btn-success" onClick={handleSubmit}>SEND</button>
+                                    }
+                                    </div>
                                 </div>
-                            </div>
                             }
                         </form>
                         </div>
