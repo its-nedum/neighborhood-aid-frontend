@@ -2,6 +2,7 @@ const initState = {
     notification: null,
     messages: [],
     loading: true,
+    message_count: 0,
 }
 
 const messageReducer = (state = initState, action) => {
@@ -27,6 +28,16 @@ const messageReducer = (state = initState, action) => {
                 ...state,
                 notification: action.message,
                 loading: false
+            }
+        case "NOTIFICATION_SUCCESS":
+            return {
+                ...state,
+                message_count: action.data,
+            }
+        case "NOTIFICATION_ERROR":
+            return {
+                ...state,
+                notification: action.message,
             }
         default:
         return state

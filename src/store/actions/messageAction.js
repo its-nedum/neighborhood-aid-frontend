@@ -46,3 +46,22 @@ export const getMessages = () => {
         })
     }
 }
+
+export const messageNotification = () => {
+    return (dispatch) => {
+        axios({
+            method: "GET",
+            url: "http://localhost:3001/api/v1/notifications",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': setAuthToken()
+            },
+        }).then((response) => {
+            const { data } = response.data
+            dispatch({type: "NOTIFICATION_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data
+            dispatch({type: "NOTIFICATION_ERROR", message})
+        })
+    }
+}

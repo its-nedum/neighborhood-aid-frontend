@@ -27,7 +27,7 @@ const Messages = (props) => {
             <Navbar ownProps={props}/>
             <div className="container mt-3 mb-5" style={{minHeight:'100vh'}}>
                 <h5 className="my-request-heading">My Messages</h5>
-                {messages && messages.length !== 0 ? 
+                {messages && messages.length !== 0 && messages !== undefined ? 
                     messages.map((message, index) => {
                         return(
                             <div className="row mb-2" key={index}>
