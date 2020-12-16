@@ -46,7 +46,11 @@ const userReducer = (state = initState, action) => {
             return {
                 ...state,
                 notification: action.message
-            }        
+            } 
+        case "USER_LOGOUT":
+            return {
+                ...state
+            }       
         default:
         return state
     }

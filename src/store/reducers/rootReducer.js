@@ -5,11 +5,19 @@ import volunteerReducer from "../reducers/volunteerReducer";
 
 import { combineReducers } from "redux"
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
     message: messageReducer,
     request: requestReducer,
     user: userReducer,
     volunteer: volunteerReducer,
 })
+
+const rootReducer = (state, action) => {
+    if(action.type === 'USER_LOGOUT'){
+        state = undefined
+    }
+
+    return appReducer(state, action)
+}
 
 export default rootReducer;

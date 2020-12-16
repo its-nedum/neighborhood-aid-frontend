@@ -78,3 +78,9 @@ export const signup = (user, ownProps) => {
         })
     }
 }
+
+export const userLogout = () => {
+    return (dispatch) => {
+        dispatch({type: "USER_LOGOUT"})
+    }
+}

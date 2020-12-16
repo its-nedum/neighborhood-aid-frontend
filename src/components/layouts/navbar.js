@@ -3,10 +3,11 @@ import {NavLink, Link } from 'react-router-dom'
 import '../../styles/navbar.css'
 import { isLoggedIn, getUser } from "../../services/utilities"
 import { messageNotification } from "../../store/actions/messageAction"
+import { userLogout } from "../../store/actions/userAction"
 import { connect } from "react-redux"
 
 const Navbar = (props) => {
-    const {ownProps, message_count, messageNotification} = props
+    const {ownProps, message_count, messageNotification, userLogout} = props
 
     useEffect(() => {
         messageNotification()
@@ -16,6 +17,8 @@ const Navbar = (props) => {
     const logout = () => {
         // remove auth token
         localStorage.removeItem('Aid-Auth')
+        // reset redux state
+        userLogout()
         // redirect
         ownProps.history.push("/")
     }
@@ -79,7 +82,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        messageNotification: () => dispatch(messageNotification())
+        messageNotification: () => dispatch(messageNotification()),
+        userLogout: () => dispatch(userLogout())
     }
 }
 
