@@ -7,7 +7,7 @@ const initState = {
     request: [], // Single request
     my_requests: [], // My requests
     my_requests_loading: true,
-    fulfilled: false,
+    processing: false,
 }
 
 const requestReducer = (state = initState, action) => {
@@ -68,12 +68,32 @@ const requestReducer = (state = initState, action) => {
         case "PROCESSING":
             return {
                 ...state,
-                fulfilled: true
+                processing: true
             }  
         case "DONE":
             return {
                 ...state,
-                fulfilled: false
+                processing: false
+            }
+        case "REPUBLISH_REQUEST_SUCCESS":
+            return {
+                ...state,
+                notification: action.message,
+            }
+        case "REPUBLISH_REQUEST_ERROR":
+            return {
+                ...state,
+                notification: action.message
+            }
+        case "DELETE_REQUEST_SUCCESS":
+            return {
+                ...state,
+                notification: action.message,
+            }
+        case "DELETE_REQUEST_ERROR":
+            return {
+                ...state,
+                notification: action.message
             }
         default:
         return state

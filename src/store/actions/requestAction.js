@@ -103,3 +103,51 @@ export const markAsFulfilled = (id) => {
         })
     }
 }
+
+export const republishRequest = (id) => {
+    return (dispatch) => {
+        dispatch({type: "PROCESSING"})
+        axios({
+            method: "PATCH",
+            url: `http://localhost:3001/api/v1/republish/${id}`,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+        }).then((response) => {
+            const { message } = response.data;
+            dispatch({type: "REPUBLISH_REQUEST_SUCCESS", message})
+            dispatch({type: "DONE"})
+            successMsg(message)
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "REPUBLISH_REQUEST_ERROR", message})
+            dispatch({type: "DONE"})
+            errorMsg(message)
+        })
+    }
+}
+
+export const deleteRequest = (id) => {
+    return (dispatch) => {
+        dispatch({type: "PROCESSING"})
+        axios({
+            method: "DELETE",
+            url: `http://localhost:3001/api/v1/requests/${id}`,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+        }).then((response) => {
+            const { message } = response.data;
+            dispatch({type: "DELETE_REQUEST_SUCCESS", message})
+            dispatch({type: "DONE"})
+            successMsg(message)
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "DELETE_REQUEST_ERROR", message})
+            dispatch({type: "DONE"})
+            errorMsg(message)
+        })
+    }
+}

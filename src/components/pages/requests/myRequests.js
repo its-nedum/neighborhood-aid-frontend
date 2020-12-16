@@ -2,9 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import moment from "moment"
 import {getUser} from "../../../services/utilities"
-import processing from "../../../images/loading.gif"
 
-const MyRequests = ({my_requests, markAsFulfilled, status}) => {
+
+const MyRequests = ({my_requests, markAsFulfilled, republishRequest, deleteRequest}) => {
 
     return (
         <div>
@@ -27,11 +27,9 @@ const MyRequests = ({my_requests, markAsFulfilled, status}) => {
                                         <p className="text-left mb-0"><strong>Created:</strong> {moment(request.created_at).format('LLLL')}</p>
                                         <div className="d-flex mb-2">
                                             <Link to={`/request/${request.id}/${request.title.toLowerCase().split(' ').join('-')}`} className="btn btn-info btn-sm mr-1">View Request</Link>
-                                            { status ? <img src={processing} style={{height:'35px'}} alt="processing-loader"/> :
-                                                <Link to="#" onClick={() => markAsFulfilled(request.id)} className="btn btn-success btn-sm ml-1">Mark as Fulfilled</Link>
-                                            }
-                                            <Link to="#" className="btn btn-warning btn-sm ml-1">Re-publish</Link>
-                                            <Link to="#" className="btn btn-danger btn-sm ml-1">Delete</Link>
+                                            <Link to="#" onClick={() => markAsFulfilled(request.id)} className="btn btn-success btn-sm ml-1">Mark as Fulfilled</Link>
+                                            <Link to="#" onClick={() => republishRequest(request.id)} className="btn btn-warning btn-sm ml-1">Re-publish</Link>
+                                            <Link to="#" onClick={() => deleteRequest(request.id)} className="btn btn-danger btn-sm ml-1">Delete</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +39,6 @@ const MyRequests = ({my_requests, markAsFulfilled, status}) => {
                 : 
                 <div className="alert alert-primary" role="alert">You haven't made any request yet!</div>
                 }
-                
             
         </div>
     )
