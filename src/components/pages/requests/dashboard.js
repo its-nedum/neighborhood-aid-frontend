@@ -13,14 +13,15 @@ const Form = lazy(() => import("./reqForm"))
 
 const Dashboard = (props) => {
     const { getRequest, requests, loading } = props
-// console.log(props)
+
     useEffect(() => {
         getRequest()
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
     if(!isLoggedIn()) return <Redirect to='/' />
     if(loading) return <Loader />
+    
     return (
         <div>
             <Navbar ownProps={props}/>

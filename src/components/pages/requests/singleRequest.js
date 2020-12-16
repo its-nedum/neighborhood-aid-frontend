@@ -24,6 +24,7 @@ const SingleRequest = (props) => {
 
     useEffect(() => {
         singleRequest(id)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // This method uses the find array method to dictect if the user already volunteered

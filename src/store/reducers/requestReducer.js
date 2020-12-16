@@ -7,6 +7,7 @@ const initState = {
     request: [], // Single request
     my_requests: [], // My requests
     my_requests_loading: true,
+    fulfilled: false,
 }
 
 const requestReducer = (state = initState, action) => {
@@ -53,6 +54,26 @@ const requestReducer = (state = initState, action) => {
             return {
                 ...state,
                 notification: action.message
+            }
+        case "MARK_AS_FULFILLED_SUCCESS":
+            return {
+                ...state,
+                notification: action.message,
+            }
+        case "MARK_AS_FULFILLED_ERROR":
+            return {
+                ...state,
+                notification: action.message
+            }
+        case "PROCESSING":
+            return {
+                ...state,
+                fulfilled: true
+            }  
+        case "DONE":
+            return {
+                ...state,
+                fulfilled: false
             }
         default:
         return state

@@ -1,5 +1,9 @@
 import axios from "axios"
 import { setAuthToken } from "../../services/utilities"
+import { toast } from "react-toastify";
+
+const successMsg = (message) => toast.success(message);
+const errorMsg = (message) => toast.error(message);
 
 export const requestCounter = () => {
     return (dispatch) => {
@@ -72,6 +76,30 @@ export const getMyRequests = () => {
         }).catch((error) => {
             const { message } = error.response.data;
             dispatch({type: "MY_REQUESTS_ERROR", message})
+        })
+    }
+}
+
+export const markAsFulfilled = (id) => {
+    return (dispatch) => {
+        dispatch({type: "PROCESSING"})
+        axios({
+            method: "PATCH",
+            url: `http://localhost:3001/api/v1/requests/${id}`,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+        }).then((response) => {
+            const { message } = response.data;
+            dispatch({type: "MARK_AS_FULFILLED_SUCCESS", message})
+            dispatch({type: "DONE"})
+            successMsg(message)
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "MARK_AS_FULFILLED_ERROR", message})
+            dispatch({type: "DONE"})
+            errorMsg(message)
         })
     }
 }

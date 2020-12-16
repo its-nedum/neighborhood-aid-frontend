@@ -1,5 +1,5 @@
 import axios from "axios"
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { setAuthToken } from "../../services/utilities"
 
 // const successMsg = (message) => toast.success(message);
@@ -24,6 +24,25 @@ export const sendMessage = (mesg) => {
             const { message } = error.response.data
             dispatch({type: "MESSAGE_ERROR", message})
             dispatch({type: "DONE"})
+        })
+    }
+}
+
+export const getMessages = () => {
+    return (dispatch) => {
+        axios({
+            method: "GET",
+            url: "http://localhost:3001/api/v1/my-messages",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': setAuthToken()
+            },
+        }).then((response) => {
+            const { data } = response
+            dispatch({type: "GET_MESSAGES_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data
+            dispatch({type: "GET_MESSAGES_ERROR", message})
         })
     }
 }
