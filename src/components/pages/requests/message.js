@@ -26,19 +26,16 @@ const Message = (props) => {
                 content,
                 request_id
             }
+            
             sendMessage(mesg)
-            // console.log(mesg)
+
             setContent("")
         }else{
             return false
         }
     }
 
-    // get all chat messages when a message was sent successfully
-        
-
-// console.log(processing)
-
+    
     useEffect(() => {
         chatMessages(request_id, user_id);
         singleRequest(request_id);
