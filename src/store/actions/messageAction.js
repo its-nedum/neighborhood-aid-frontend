@@ -65,3 +65,41 @@ export const messageNotification = () => {
         })
     }
 }
+
+export const chatMessages = (request_id, user_id) => {
+    return (dispatch) => {
+        axios({
+            method: "GET",
+            url: `http://localhost:3001/api/v1/chat/${request_id}/${user_id}`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': setAuthToken()
+            },
+        }).then((response) => {
+            const { data } = response
+            dispatch({type: "CHAT_MESSAGE_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data
+            dispatch({type: "CHAT_MESSAGE_ERROR", message})
+        })
+    }
+}
+
+export const readStatus = (request_id, user_id) => {
+    return (dispatch) => {
+        axios({
+            method: "PATCH",
+            url: `http://localhost:3001/api/v1/read-status/${request_id}/${user_id}`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': setAuthToken()
+            },
+        }).then((response) => {
+            const { data } = response.data
+            dispatch({type: "READ_STATUS_SUCCESS", data})
+        }).catch((error) => {
+            const { message } = error.response.data
+            dispatch({type: "READ_STATUS_ERROR", message})
+        })
+    }
+}

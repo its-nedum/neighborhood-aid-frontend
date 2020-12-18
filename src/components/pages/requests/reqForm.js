@@ -1,13 +1,16 @@
 import React, {useState} from 'react'
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete'
 import "../../../styles/request.css"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
+import loader from "../../../images/loader.gif"
 
-const ReqForm = () => {
+const ReqForm = ({createRequest, processing}) => {
     const [title, setTitle] = useState("");
     const [type, setType] = useState("");
     const [description, setDescription] = useState("");
     const [address, setAddress] = useState("");
-    const [location, setLocation] = useState({lat: null, lng: null});
+    // const [location, setLocation] = useState({lat: null, lng: null});
     const [error, setError] = useState("")
     const [lat, setLat] = useState("")
     const [lng, setLng] = useState("")
@@ -19,7 +22,9 @@ const ReqForm = () => {
             .then(latlng => {
                 setAddress(value);
                 // split this into lat and lng
-                setLocation(latlng);
+                // setLocation(latlng);
+                setLat(latlng.lat)
+                setLng(latlng.lng)
             }).catch(error => console.log({'latlng': error}))
         }).catch(error => console.log({'geocodeError': error}))
     }
@@ -28,17 +33,34 @@ const ReqForm = () => {
         e.preventDefault();
 
         // setup form validation
+        // check if all fields are filled
+        if (!title || !type || !description || !address || !lat || !lng){
+            setError("*All fields are required")
+            return false;
+        }
+
+        const request = {
+            title,
+            reqtype: type,
+            description,
+            lat,
+            lng,
+            address,
+            status: 0
+        }
 
         // send data to be processed
-        console.log({title, type, description, location, address})
+        console.log(request)
     }
     return (
         <div className="pl-3">
             <form className="card mt-5 mb-5 pl-3 request-form">
+                <ToastContainer />
                 <h3 className="">Create a request</h3>
+                <p className="text-left text-danger">{error}</p>
                 <div className="row input-group">
                     <div className="col-12 mb-3">
-                        <label>Title<span className="text-danger">*</span></label>
+                        <label>Title<span className="text-danger">*</span> <small>{title.length !== 0 ? (title.length) : null}</small></label>
                         <input type="text" className="form-control" value={title} onChange={e => setTitle(e.target.value)} placeholder="title" aria-label="title" />
                     </div>
                 </div>
@@ -47,15 +69,15 @@ const ReqForm = () => {
                         <label>Type<span className="text-danger">*</span></label>
                         <select type="text" className="form-control" onChange={e => setType(e.target.value)}>
                             <option>select request type...</option>
-                            <option value="One-time task">One-time task</option>
-                            <option value="Material need">Material need</option>
+                            <option value="one-time">One-time task</option>
+                            <option value="material">Material need</option>
                         </select>
                     </div>
                 </div>
                 <div className="row input-group">
                     <div className="col-12 mb-3">
-                        <label>Description<span className="text-danger">*</span></label>  
-                        <textarea className="form-control" rows="5" value={description} onChange={e => setDescription(e.target.value)}/>
+                        <label>Description<span className="text-danger">*</span> <small>{description.length !== 0 ? (description.length) : null}</small></label>  
+                        <textarea className="form-control" rows="5" maxLength="300" value={description} onChange={e => setDescription(e.target.value)}/>
                     </div>
                 </div>
                 <div className="row input-group">
@@ -87,7 +109,8 @@ const ReqForm = () => {
                 </div>
                 <div className="row btn-group pr-4">
                     <div className="col-12 col-md-4 mb-3">
-                        <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>Submit</button>
+                        {processing ? <img src={loader} style={{height:'70px'}} alt="processing-loader"/> :
+                        <button type="button" className="form-control btn btn-primary" onClick={handleSubmit}>Submit</button>}
                     </div>
                 </div>
             </form>

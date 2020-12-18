@@ -151,3 +151,28 @@ export const deleteRequest = (id) => {
         })
     }
 }
+
+export const createRequest = (request) => {
+    return (dispatch) => {
+        dispatch({type: "PROCESSING"})
+        axios({
+            method: "POST",
+            url: "http://localhost:3001/api/v1/requests",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": setAuthToken(),
+            },
+            data: request
+        }).then((response) => {
+            const { message } = response.data;
+            dispatch({type: "CREATE_REQUEST_SUCCESS", message})
+            dispatch({type: "DONE"})
+            successMsg(message)
+        }).catch((error) => {
+            const { message } = error.response.data;
+            dispatch({type: "CREATE_REQUEST_ERROR", message})
+            dispatch({type: "DONE"})
+            errorMsg(message)
+        })
+    }
+}

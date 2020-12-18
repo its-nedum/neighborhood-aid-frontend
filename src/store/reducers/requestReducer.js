@@ -95,6 +95,16 @@ const requestReducer = (state = initState, action) => {
                 ...state,
                 notification: action.message
             }
+        case "CREATE_REQUEST_SUCCESS":
+            return {
+                ...state,
+                notification: action.message,
+            }
+        case "CREATE_REQUEST_ERROR":
+            return {
+                ...state,
+                notification: action.message
+            }
         default:
         return state
     }

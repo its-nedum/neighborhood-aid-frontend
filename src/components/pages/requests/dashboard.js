@@ -5,14 +5,14 @@ import { isLoggedIn } from "../../../services/utilities"
 import {Redirect} from 'react-router-dom'
 import Spinner from "../../maps/spinner"
 import { connect } from "react-redux"
-import { getRequest } from "../../../store/actions/requestAction"
+import { getRequest, createRequest } from "../../../store/actions/requestAction"
 import Loader from "./loader"
 
 const Map = lazy(() => import("../../maps/map"))
 const Form = lazy(() => import("./reqForm"))
 
 const Dashboard = (props) => {
-    const { getRequest, requests, loading } = props
+    const { getRequest, requests, loading, processing, createRequest } = props
 
     useEffect(() => {
         getRequest()
@@ -29,7 +29,7 @@ const Dashboard = (props) => {
                 <div className="row d-flex">
                     <Suspense fallback={<Spinner />}>
                         <div className="col-12 col-md-5 order-2 order-md-1">
-                            <Form />
+                            <Form createRequest={createRequest} processing={processing} />
                         </div>
                         <div className="col-12 col-md-7 order-1 order-md-2">
                             { requests && <Map requests={requests} /> }
@@ -45,12 +45,14 @@ const mapStateToProps = (state) => {
     return {
         requests: state.request.requests,
         loading: state.request.loading,
+        processing: state.request.processing,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getRequest: () => dispatch(getRequest())
+        getRequest: () => dispatch(getRequest()),
+        createRequest: (request) => dispatch(createRequest(request))
     }
 }
 

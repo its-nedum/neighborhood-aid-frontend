@@ -3,6 +3,10 @@ const initState = {
     messages: [],
     loading: true,
     message_count: 0,
+    chat_messages: [],
+    chat_loading: true,
+    processing: false,
+    read_status: [],
 }
 
 const messageReducer = (state = initState, action) => {
@@ -35,6 +39,38 @@ const messageReducer = (state = initState, action) => {
                 message_count: action.data,
             }
         case "NOTIFICATION_ERROR":
+            return {
+                ...state,
+                notification: action.message,
+            }
+        case "CHAT_MESSAGE_SUCCESS":
+            return {
+                ...state,
+                chat_messages: action.data,
+                chat_loading: false,
+            }
+        case "CHAT_MESSAGE_ERROR":
+            return {
+                ...state,
+                notification: action.message,
+                chat_loading: false,
+            }
+        case "PROCESSING":
+            return {
+                ...state,
+                processing: true
+            }  
+        case "DONE":
+            return {
+                ...state,
+                processing: false
+            }
+        case "READ_STATUS_SUCCESS":
+            return {
+                ...state,
+                read_status: action.data,
+            }
+        case "READ_STATUS_ERROR":
             return {
                 ...state,
                 notification: action.message,
