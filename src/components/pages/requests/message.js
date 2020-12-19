@@ -9,33 +9,52 @@ import {connect} from "react-redux"
 import moment from "moment"
 import Loader from "./loader"
 import Spinning from "../../../images/loading.gif"
-import Sending from "../../../images/loader.gif"
 
 const Message = (props) => {
     const {chatMessages, loading, chat_messages, match:{params:{request_id, user_id}}, 
-            singleRequest, single_loading, request, sendMessage, processing, readStatus} = props
+            singleRequest, single_loading, request, sendMessage, readStatus} = props
 
     const [content, setContent] = useState("")
-
+    const [chats, setChats] = useState(chat_messages)
+    
     // handles form validation and message sending
     const handleSubmit = (e) => {
         e.preventDefault()
         if(content){
+            // this message will be sent to the database
             const mesg = {
                 receiver_id: user_id,
                 content,
                 request_id
             }
-            
+            // a copy of the message will also be shown to the user to mimick real time messaging
+            const add = {
+                content,
+                user_id: getUser().user_id,
+                created_at: Date()
+            }
+            // add the new message to the chats state
+            setChats(prev => [...prev, add])
+            // send the message to the backend
             sendMessage(mesg)
-
+            // clear state
             setContent("")
         }else{
             return false
         }
     }
 
-    
+    // update our chats state once component is loaded
+    useEffect(() => {
+        setChats(chat_messages.map(message => {
+            return {
+                content:message.content,
+                user_id: message.user_id,
+                created_at: message.created_at,
+            }
+        }))
+    }, [chat_messages])
+
     useEffect(() => {
         chatMessages(request_id, user_id);
         singleRequest(request_id);
@@ -81,7 +100,7 @@ const Message = (props) => {
                             <div className="chat-body">
                                 <div>
                                     {chat_messages && chat_messages.length !== 0?
-                                        chat_messages.map((chat, index) => {
+                                        chats.map((chat, index) => {
                                             return(
                                                 <div key={index}>
                                                     {chat.user_id === getUser().user_id ?
@@ -110,10 +129,7 @@ const Message = (props) => {
                                     <input type="text" value={content} onChange={e => setContent(e.target.value)} className="form-control" placeholder="type your messages here..." />
                                 </div>
                                 <div className="chat-btn">
-                                    {processing? <img src={Sending} style={{height:'30px'}} alt="processing-loader"/>:
-                                        <button className="form-control" onClick={handleSubmit}>Send</button>
-                                    }
-                                    
+                                    <button className="form-control" onClick={handleSubmit}>Send</button>  
                                 </div>
                             </div>
                         </div>
@@ -131,8 +147,6 @@ const mapStateToProps = (state) => {
 
         request: state.request.request,
         single_loading: state.request.single_loading,
-
-        processing: state.message.processing, //for send btn
     }
 }
 
