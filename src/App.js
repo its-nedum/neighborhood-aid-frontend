@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import Home from './components/pages/home';
-import Footer from './components/layouts/footer';
 import About from './components/pages/users/about'
 import Signin from './components/pages/users/signin'
 import Signup from './components/pages/users/signup'
@@ -27,7 +26,6 @@ function App() {
           <Route path="/users/messages" component={Messages} />
           <Route path="/message/:request_id/:user_id" component={Message} />
         </Switch>
-        <Footer />
       </div>
     </BrowserRouter>
   );

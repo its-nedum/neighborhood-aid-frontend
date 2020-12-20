@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { requestCounter } from "../../store/actions/requestAction";
 import { userCounter } from "../../store/actions/userAction";
 import Loader from "../pages/requests/loader"
+import Footer from "../layouts/footer"
 
 const Counter = lazy(() => import("../layouts/counter"))
 
@@ -93,7 +94,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
-        
+        <Footer />
         </div>
     )
 }

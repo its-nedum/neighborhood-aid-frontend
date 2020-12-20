@@ -9,6 +9,7 @@ import {connect} from "react-redux"
 import moment from "moment"
 import Loader from "./loader"
 import Spinning from "../../../images/loading.gif"
+import Footer from "../../layouts/footer"
 
 const Message = (props) => {
     const {chatMessages, loading, chat_messages, match:{params:{request_id, user_id}}, 
@@ -136,6 +137,7 @@ const Message = (props) => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

@@ -11,6 +11,7 @@ import { connect } from "react-redux"
 import Loader from "./loader"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../../layouts/footer"
 
 const MyActivities = (props) => {
     const {getMyRequests, my_requests, getMyVolunteerings, my_volunteerings, loading, markAsFulfilled, processing} = props
@@ -53,9 +54,9 @@ const MyActivities = (props) => {
                     <div className="col-12 col-md-6">
                         <MyVolunteering my_volunteerings={my_volunteerings} />
                     </div>
-                </div>
-                
+                </div> 
             </div>
+            <Footer />
         </div>
     )
 }

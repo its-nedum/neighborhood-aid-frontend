@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../../styles/about.css'
 import Navbar from "../../layouts/navbar"
+import Footer from "../../layouts/footer"
 
 const About = (props) => {
     return (
@@ -29,6 +30,7 @@ const About = (props) => {
                     <div className="col-md-3"></div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

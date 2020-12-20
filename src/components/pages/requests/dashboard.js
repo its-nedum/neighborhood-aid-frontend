@@ -7,6 +7,7 @@ import Spinner from "../../maps/spinner"
 import { connect } from "react-redux"
 import { getRequest, createRequest } from "../../../store/actions/requestAction"
 import Loader from "./loader"
+import Footer from "../../layouts/footer"
 
 const Map = lazy(() => import("../../maps/map"))
 const Form = lazy(() => import("./reqForm"))
@@ -37,6 +38,7 @@ const Dashboard = (props) => {
                     </Suspense>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

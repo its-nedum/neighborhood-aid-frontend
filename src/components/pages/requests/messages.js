@@ -7,6 +7,7 @@ import Loader from "./loader"
 import { getMessages } from "../../../store/actions/messageAction"
 import { connect } from "react-redux"
 import moment from "moment"
+import Footer from "../../layouts/footer"
 
 /* This component holds all the volunteers to the logged in user's request
     with a button to redirect to the chat(Message Component) between him and his volunteer
@@ -66,6 +67,7 @@ const Messages = (props) => {
                     </div>
                 }
             </div>
+            <Footer />
         </div>
     )
 }

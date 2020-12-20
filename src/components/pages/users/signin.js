@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { connect } from "react-redux"
 import { login } from "../../../store/actions/userAction"
 import processing from "../../../images/loader.gif"
+import Footer from "../../layouts/footer"
 
 
 const Signin = (props) => {
@@ -90,6 +91,7 @@ const Signin = (props) => {
                     <div className="col-md-3"></div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

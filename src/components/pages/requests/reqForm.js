@@ -37,7 +37,7 @@ const ReqForm = ({createRequest, processing}) => {
         if (!title || !type || !description || !address || !lat || !lng){
             setError("*All fields are required")
             return false;
-        }
+        }else{
 
         const request = {
             title,
@@ -50,7 +50,11 @@ const ReqForm = ({createRequest, processing}) => {
         }
 
         // send data to be processed
-        console.log(request)
+        console.log(request)   
+
+        // clear error
+        setError("")
+        }
     }
     return (
         <div className="pl-3">
@@ -60,8 +64,8 @@ const ReqForm = ({createRequest, processing}) => {
                 <p className="text-left text-danger">{error}</p>
                 <div className="row input-group">
                     <div className="col-12 mb-3">
-                        <label>Title<span className="text-danger">*</span> <small>{title.length !== 0 ? (title.length) : null}</small></label>
-                        <input type="text" className="form-control" value={title} onChange={e => setTitle(e.target.value)} placeholder="title" aria-label="title" />
+                        <label>Title<span className="text-danger">*</span> <small>{title.length !== 0 ? `(${title.length})` : null}</small></label>
+                        <input type="text" className="form-control" maxLength="50" value={title} onChange={e => setTitle(e.target.value)} placeholder="title" aria-label="title" />
                     </div>
                 </div>
                 <div className="row input-group">
@@ -76,36 +80,36 @@ const ReqForm = ({createRequest, processing}) => {
                 </div>
                 <div className="row input-group">
                     <div className="col-12 mb-3">
-                        <label>Description<span className="text-danger">*</span> <small>{description.length !== 0 ? (description.length) : null}</small></label>  
+                        <label>Description<span className="text-danger">*</span> <small>{description.length !== 0 ? `(${description.length})` : null}</small></label>  
                         <textarea className="form-control" rows="5" maxLength="300" value={description} onChange={e => setDescription(e.target.value)}/>
                     </div>
                 </div>
                 <div className="row input-group">
-                    <PlacesAutocomplete 
-                        value={address}
-                        onChange={setAddress}
-                        onSelect={handleSelect} 
-                    >
-                        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                            <div>  
-                                <div className="col-12 mb-3">
+                    <div className="col-12 mb-3">
+                        <PlacesAutocomplete 
+                            value={address}
+                            onChange={setAddress}
+                            onSelect={handleSelect} 
+                        >
+                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                <div>  
                                     <label>Location<span className="text-danger">*</span></label>  
                                     <input {...getInputProps()} type="text" className="form-control" placeholder="location" aria-label="location" />
+                                    <div className="autocomplete-dropdown mb-2 text-left pl-3">
+                                        {loading ? <div>loading...</div> : null}
+                                        {suggestions.map((suggestion, index) => {
+                                            const style = {
+                                                backgroundColor: suggestion.active ? "#083E9E" : "#fff",
+                                                color: suggestion.active ? "#fff" : "#083E9E",
+                                                cursor: suggestion.active ? 'pointer' : 'pointer',
+                                            };
+                                            return <div {...getSuggestionItemProps(suggestion, { style })} key={index}>{suggestion.description}</div>
+                                        })}
+                                    </div>
                                 </div>
-                                <div className="autocomplete-dropdown mb-2 text-left pl-3">
-                                    {loading ? <div>loading...</div> : null}
-                                    {suggestions.map((suggestion, index) => {
-                                        const style = {
-                                            backgroundColor: suggestion.active ? "#083E9E" : "#fff",
-                                            color: suggestion.active ? "#fff" : "#083E9E",
-                                            cursor: suggestion.active ? 'pointer' : 'pointer',
-                                        };
-                                        return <div {...getSuggestionItemProps(suggestion, { style })} key={index}>{suggestion.description}</div>
-                                    })}
-                                </div>
-                            </div>
-                        )}
-                    </PlacesAutocomplete>
+                            )}
+                        </PlacesAutocomplete>
+                    </div>
                 </div>
                 <div className="row btn-group pr-4">
                     <div className="col-12 col-md-4 mb-3">

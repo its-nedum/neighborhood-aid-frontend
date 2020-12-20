@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import moment from "moment"
 import Loader from "./loader"
 import processing from "../../../images/loader.gif"
+import Footer from "../../layouts/footer"
 
 const SingleRequestMap = lazy(() => import("../../maps/singleRequestMap"))
 
@@ -133,6 +134,7 @@ const SingleRequest = (props) => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
