@@ -33,3 +33,13 @@ export const getUser = () => {
     const { user_id, firstname, lastname } = jwt_decode(getToken())
     return {user_id, firstname, lastname}
 }
+
+export const waitTime = (updated_at) => {
+    const milliseconds = new Date().getTime() - new Date(updated_at);
+    const hour = Number(Math.floor((milliseconds / 1000 / 60 / 60)));
+    if(hour > 24){
+        return true
+    }else{
+        return false;
+    }
+}

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../../layouts/navbar'
 import { isLoggedIn } from "../../../services/utilities"
 import {Redirect} from 'react-router-dom'
@@ -14,7 +14,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "../../layouts/footer"
 
 const MyActivities = (props) => {
-    const {getMyRequests, my_requests, getMyVolunteerings, my_volunteerings, loading, markAsFulfilled, processing} = props
+    const {getMyRequests, my_requests, getMyVolunteerings, my_volunteerings, 
+            loading, markAsFulfilled, deleteRequest, republishRequest} = props
+
+    const [allRequests, setAllRequests] = useState([])
 
     useEffect(() => {
         getMyRequests();
@@ -22,21 +25,40 @@ const MyActivities = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    useEffect(() => {
+        setAllRequests(my_requests)
+    }, [my_requests])
+
     const markfulfilled = (id) => {
         markAsFulfilled(id)
+        // changed the request status to fulfilled
+        allRequests.map((item) => {
+            if(item.id === id && item.status === 0){
+                item.status = 1
+            }
+            return true
+        })
     }
 
     const republish = (id) => {
         republishRequest(id)
+        // changed the request status to unfulfilled
+        allRequests.map((item) => {
+            if(item.id === id){
+               item.status = 0
+            }
+            return true
+        })
     }
 
     const deleteReq = (id) => {
         deleteRequest(id)
+        // remove the request from the request array
+        setAllRequests(allRequests.filter(item => item.id !== id))
     }
 
     if(!isLoggedIn()) return <Redirect to='/' />
     if(loading) return <Loader />
-    if(processing) return <Loader />
 
     return (
         <div>
@@ -45,7 +67,7 @@ const MyActivities = (props) => {
                 <ToastContainer />
                 <div className="row">
                    <div className="col-12 col-md-6">
-                        <MyRequests my_requests={my_requests} 
+                        <MyRequests my_requests={allRequests} 
                             markAsFulfilled={markfulfilled} 
                             republishRequest={republish}
                             deleteRequest={deleteReq}
@@ -66,7 +88,6 @@ const mapStateToProps = (state) => {
         my_requests: state.request.my_requests,
         my_volunteerings: state.volunteer.my_volunteerings,
         loading: state.volunteer.my_volunteerings_loading,
-        processing: state.request.processing,
     }
 }
 

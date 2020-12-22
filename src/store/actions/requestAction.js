@@ -94,12 +94,10 @@ export const markAsFulfilled = (id) => {
             const { message } = response.data;
             dispatch({type: "MARK_AS_FULFILLED_SUCCESS", message})
             dispatch({type: "DONE"})
-            successMsg(message)
         }).catch((error) => {
             const { message } = error.response.data;
             dispatch({type: "MARK_AS_FULFILLED_ERROR", message})
             dispatch({type: "DONE"})
-            errorMsg(message)
         })
     }
 }
@@ -142,12 +140,10 @@ export const deleteRequest = (id) => {
             const { message } = response.data;
             dispatch({type: "DELETE_REQUEST_SUCCESS", message})
             dispatch({type: "DONE"})
-            successMsg(message)
         }).catch((error) => {
             const { message } = error.response.data;
             dispatch({type: "DELETE_REQUEST_ERROR", message})
             dispatch({type: "DONE"})
-            errorMsg(message)
         })
     }
 }
