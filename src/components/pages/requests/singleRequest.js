@@ -96,7 +96,7 @@ const SingleRequest = (props) => {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-5">
+                    <div className="col-12 col-md-5 mb-5">
                         <div className="about-volunteers">
                             <div className="card">
                             <h5 className="pl-2">Volunteers For This Request</h5>
