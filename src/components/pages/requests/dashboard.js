@@ -6,6 +6,7 @@ import {Redirect} from 'react-router-dom'
 import Spinner from "../../maps/spinner"
 import { connect } from "react-redux"
 import { getRequest, createRequest } from "../../../store/actions/requestAction"
+import { getUserLocation } from "../../../store/actions/userAction"
 import Loader from "./loader"
 import Footer from "../../layouts/footer"
 
@@ -13,10 +14,11 @@ const Map = lazy(() => import("../../maps/map"))
 const Form = lazy(() => import("./reqForm"))
 
 const Dashboard = (props) => {
-    const { getRequest, requests, loading, processing, createRequest } = props
+    const { getRequest, requests, loading, processing, createRequest, getUserLocation, userLocation } = props
 
     useEffect(() => {
         getRequest()
+        getUserLocation()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -33,7 +35,7 @@ const Dashboard = (props) => {
                             <Form createRequest={createRequest} processing={processing} />
                         </div>
                         <div className="col-12 col-md-7 order-1 order-md-2">
-                            { requests && <Map requests={requests} /> }
+                            { requests && <Map requests={requests} userLocation={userLocation} /> }
                         </div>
                     </Suspense>
                 </div>
@@ -48,13 +50,15 @@ const mapStateToProps = (state) => {
         requests: state.request.requests,
         loading: state.request.loading,
         processing: state.request.processing,
+        userLocation: state.user.userLocation,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getRequest: () => dispatch(getRequest()),
-        createRequest: (request) => dispatch(createRequest(request))
+        createRequest: (request) => dispatch(createRequest(request)),
+        getUserLocation: () => dispatch(getUserLocation())
     }
 }
 

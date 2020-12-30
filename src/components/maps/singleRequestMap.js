@@ -9,10 +9,11 @@ const containerStyle = {
     height: '50vh'
   };
 
+
 const SingleRequestMap = ({request}) => {
 
     // pass google map api key to load the Google Maps script
-    const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY })
+    const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_API_KEY })
 
     // make api call to backend to get requests details and location
     const place = {

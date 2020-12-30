@@ -1,16 +1,13 @@
 import axios from "axios"
-// import { toast } from "react-toastify";
 import { setAuthToken } from "../../services/utilities"
 
-// const successMsg = (message) => toast.success(message);
-// const errorMsg = (message) => toast.error(message);
 
 export const sendMessage = (mesg) => {
     return (dispatch) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "POST",
-            url: "http://localhost:3001/api/v1/messages",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/messages",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': setAuthToken()
@@ -32,7 +29,7 @@ export const getMessages = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: "http://localhost:3001/api/v1/my-messages",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/my-messages",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': setAuthToken()
@@ -51,7 +48,7 @@ export const messageNotification = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: "http://localhost:3001/api/v1/notifications",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/notifications",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': setAuthToken()
@@ -70,7 +67,7 @@ export const chatMessages = (request_id, user_id) => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: `http://localhost:3001/api/v1/chat/${request_id}/${user_id}`,
+            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/chat/${request_id}/${user_id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': setAuthToken()
@@ -89,7 +86,7 @@ export const readStatus = (request_id, user_id) => {
     return (dispatch) => {
         axios({
             method: "PATCH",
-            url: `http://localhost:3001/api/v1/read-status/${request_id}/${user_id}`,
+            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/read-status/${request_id}/${user_id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': setAuthToken()

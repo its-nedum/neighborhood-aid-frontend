@@ -10,7 +10,6 @@ const ReqForm = ({createRequest, processing}) => {
     const [type, setType] = useState("");
     const [description, setDescription] = useState("");
     const [address, setAddress] = useState("");
-    // const [location, setLocation] = useState({lat: null, lng: null});
     const [error, setError] = useState("")
     const [lat, setLat] = useState("")
     const [lng, setLng] = useState("")
@@ -21,8 +20,6 @@ const ReqForm = ({createRequest, processing}) => {
             getLatLng(results[0])
             .then(latlng => {
                 setAddress(value);
-                // split this into lat and lng
-                // setLocation(latlng);
                 setLat(latlng.lat)
                 setLng(latlng.lng)
             }).catch(error => console.log({'latlng': error}))
@@ -50,10 +47,16 @@ const ReqForm = ({createRequest, processing}) => {
         }
 
         // send data to be processed
-        console.log(request)   
+        createRequest(request) 
 
         // clear error
         setError("")
+        setTitle("")
+        setType("")
+        setDescription("")
+        setAddress("")
+        setLat("")
+        setLng("")
         }
     }
     return (

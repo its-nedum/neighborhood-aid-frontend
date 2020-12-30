@@ -2,6 +2,7 @@ const initState = {
     notification: false,
     user_counter: [],
     user_loading: true,
+    userLocation: {lat: 9.0820,lng: 8.6753}, // set user default location while google fetch the exact location
 }
 
 const userReducer = (state = initState, action) => {
@@ -50,7 +51,17 @@ const userReducer = (state = initState, action) => {
         case "USER_LOGOUT":
             return {
                 ...state
-            }       
+            } 
+        case "USER_LOCATION":
+            return {
+                ...state,
+                userLocation: action.location
+            }
+        case "DEFAULT_LOCATION":
+            return {
+                ...state,
+                userLocation: action.location
+            }      
         default:
         return state
     }
