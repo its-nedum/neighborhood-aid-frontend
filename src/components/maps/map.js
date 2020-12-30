@@ -1,4 +1,4 @@
-import React, {useState, Fragment, useEffect} from 'react'
+import React, {useState, Fragment} from 'react'
 import {GoogleMap, Marker, InfoWindow, useLoadScript} from "@react-google-maps/api"
 import {Link} from "react-router-dom"
 import Spinner from "./spinner"
@@ -21,7 +21,7 @@ const Map = ({ requests }) => {
 
     // set the default map center to somewhere in Nigeria 
     const [center, setCenter] = useState({lat: 9.0820,lng: 8.6753})
-
+    setCenter({lat: 9.0820,lng: 8.6753})
     // make api call to backend to get requests details and location
     // const locations = [
     //     {id: 1, title: 'lorem-req-1', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor', coords:{lat: 8.8471, lng: 7.8776}, type:'One-time', status: 'Unfulfilled'},
