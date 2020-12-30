@@ -9,7 +9,7 @@ export const userCounter = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: "http://localhost:3001/api/v1/users",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/users",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -28,7 +28,7 @@ export const login = (user, ownProps) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "POST",
-            url: "http://localhost:3001/api/v1/login",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/login",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -56,7 +56,7 @@ export const signup = (user, ownProps) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "POST",
-            url: "http://localhost:3001/api/v1/users",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/users",
             headers: {
                 'Content-Type': 'application/json',
             },

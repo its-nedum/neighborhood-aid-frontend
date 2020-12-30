@@ -10,7 +10,7 @@ export const makeVolunteer = (volunteer, ownProps) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "POST",
-            url: "http://localhost:3001/api/v1/volunteers",
+            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/volunteers",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': setAuthToken()
@@ -37,7 +37,7 @@ export const getMyVolunteerings = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: `http://localhost:3001/api/v1/my-volunteerings`,
+            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/my-volunteerings`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
