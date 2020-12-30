@@ -9,7 +9,7 @@ export const requestCounter = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/request-counter",
+            url: "http://localhost:3001/api/v1/request-counter",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -27,7 +27,7 @@ export const getRequest = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/requests",
+            url: "http://localhost:3001/api/v1/requests",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -46,7 +46,7 @@ export const singleRequest = (id) => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/requests/${id}`,
+            url: `http://localhost:3001/api/v1/requests/${id}`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -65,7 +65,7 @@ export const getMyRequests = () => {
     return (dispatch) => {
         axios({
             method: "GET",
-            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/my-requests`,
+            url: `http://localhost:3001/api/v1/my-requests`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -85,7 +85,7 @@ export const markAsFulfilled = (id) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "PATCH",
-            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/requests/${id}`,
+            url: `http://localhost:3001/api/v1/requests/${id}`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -107,7 +107,7 @@ export const republishRequest = (id) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "PATCH",
-            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/republish/${id}`,
+            url: `http://localhost:3001/api/v1/republish/${id}`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -131,7 +131,7 @@ export const deleteRequest = (id) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "DELETE",
-            url: `https://neighborhood-aid-api.herokuapp.com/api/v1/requests/${id}`,
+            url: `http://localhost:3001/api/v1/requests/${id}`,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -153,7 +153,7 @@ export const createRequest = (request) => {
         dispatch({type: "PROCESSING"})
         axios({
             method: "POST",
-            url: "https://neighborhood-aid-api.herokuapp.com/api/v1/requests",
+            url: "http://localhost:3001/api/v1/requests",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": setAuthToken(),
@@ -172,3 +172,6 @@ export const createRequest = (request) => {
         })
     }
 }
+
+// http://localhost:3001/
+// http://localhost:3001
