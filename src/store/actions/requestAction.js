@@ -173,4 +173,3 @@ export const createRequest = (request) => {
     }
 }
 
-// https://neighborhood-aid-api.herokuapp.com

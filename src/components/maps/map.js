@@ -10,7 +10,7 @@ const containerStyle = {
   };
 
 const Map = ({ requests, userLocation }) => {
-// console.log(requests)
+
     // pass google map api key to load the Google Maps script
     const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.REACT_APP_API_KEY })
 
@@ -31,7 +31,7 @@ const Map = ({ requests, userLocation }) => {
         // remember which place was clicked
         setSelectedPlace(place)
 
-        // this close the first marker infoWindowWindow on the click of the second marker
+        // this close the first marker infoWindow Window on the click of the second marker
         if(infoWindowOpen){
             setInfoWindowOpen(false)
         }

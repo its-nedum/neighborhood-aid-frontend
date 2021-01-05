@@ -14,7 +14,15 @@ const Map = lazy(() => import("../../maps/map"))
 const Form = lazy(() => import("./reqForm"))
 
 const Dashboard = (props) => {
-    const { getRequest, requests, loading, processing, createRequest, getUserLocation, userLocation } = props
+    const { getRequest, requests, loading, processing, createRequest, getUserLocation, userLocation, mesg } = props
+    
+    useEffect(() => {
+        if(mesg !== '' && mesg !== 'loading'){
+           getRequest()
+           getUserLocation() 
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mesg])
 
     useEffect(() => {
         getRequest()
@@ -35,7 +43,7 @@ const Dashboard = (props) => {
                             <Form createRequest={createRequest} processing={processing} />
                         </div>
                         <div className="col-12 col-md-7 order-1 order-md-2">
-                            { requests && <Map requests={requests} userLocation={userLocation} /> }
+                            { requests && <Map requests={requests} userLocation={userLocation} /> } 
                         </div>
                     </Suspense>
                 </div>
@@ -51,6 +59,7 @@ const mapStateToProps = (state) => {
         loading: state.request.loading,
         processing: state.request.processing,
         userLocation: state.user.userLocation,
+        mesg: state.request.notification,
     }
 }
 

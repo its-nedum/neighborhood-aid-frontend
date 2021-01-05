@@ -1,5 +1,5 @@
 const initState = {
-    notification: null,
+    notification: "",
     loading: true,
     single_loading: true,
     request_counter: [],
@@ -68,7 +68,8 @@ const requestReducer = (state = initState, action) => {
         case "PROCESSING":
             return {
                 ...state,
-                processing: true
+                processing: true,
+                notification: "loading"
             }  
         case "DONE":
             return {
