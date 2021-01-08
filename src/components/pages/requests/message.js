@@ -77,7 +77,7 @@ const Message = (props) => {
                                 {!single_loading? 
                                 <div className="about-body">
                                     <h6 className="request-title">{request.title}</h6>
-                                    <h6 className="about-req-by"><strong>Request by:</strong> Chinedu Emesue</h6>
+                                    <h6 className="about-req-by"><strong>Request by:</strong> {`${request.user.firstname} ${request.user.lastname}`}</h6>
                                     <p className="about-req-type"><strong>Type:</strong> {request.reqtype}</p>
                                     {request.status === 0 ?
                                         <p className="about-req-type"><strong>Status:</strong><span className="text-danger"> Unfulfilled</span></p>
