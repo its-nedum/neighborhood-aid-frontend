@@ -24,11 +24,30 @@ const Signup = (props) => {
         e.preventDefault();
 
         // check if all fields are filled
-        if (!firstname || !lastname || !image || !email || !password){
+        if (!firstname && !lastname && !image && !email && !password){
             setError("*All fields are required")
             return false;
         }
-
+        if (!firstname) {
+            setError("*Firstname is required")
+            return false;
+        }
+        if (!lastname) {
+            setError("*Lastname is required")
+            return false;
+        }
+        if (!image) {
+            setError("*Image file is required")
+            return false;
+        }
+        if (!email) {
+            setError("*Email is required")
+            return false;
+        }
+        if (!password) {
+            setError("*Password is required")
+            return false;
+        }
         // check if the email is valid
         if (/\S+@\S+\.\S+/.test(email) === false) {
             setError('*Enter a valid email address')
@@ -55,13 +74,6 @@ const Signup = (props) => {
             
             // send details to be processed
             signup(user)
-
-            // clear fields
-            setEmail("")
-            setPassword("")
-            setFirstname("")
-            setLastname("")
-            setImage("")
         }
     }
     return (

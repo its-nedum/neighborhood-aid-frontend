@@ -125,14 +125,16 @@ const Message = (props) => {
                                      : <div className="alert alert-primary" role="alert">Oops.....What have you done?</div>} 
                                 </div>
                             </div>
-                            <div className="chat-action">
-                                <div className="text-input">
-                                    <input type="text" value={content} onChange={e => setContent(e.target.value)} className="form-control" placeholder="type your messages here..." />
+                            <form onSubmit={handleSubmit}>
+                                <div className="chat-action"> 
+                                    <div className="text-input">
+                                        <input type="text" value={content} onChange={e => setContent(e.target.value)} className="form-control" placeholder="type your messages here..." />
+                                    </div>
+                                    <div className="chat-btn">
+                                        <button className="form-control" onClick={handleSubmit}>Send</button>  
+                                    </div>
                                 </div>
-                                <div className="chat-btn">
-                                    <button className="form-control" onClick={handleSubmit}>Send</button>  
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

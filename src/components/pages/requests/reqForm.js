@@ -31,33 +31,54 @@ const ReqForm = ({createRequest, processing}) => {
 
         // setup form validation
         // check if all fields are filled
-        if (!title || !type || !description || !address || !lat || !lng){
+        if (!title && !type && !description && !address && !lat && !lng){
             setError("*All fields are required")
             return false;
-        }else{
-
-        const request = {
-            title,
-            reqtype: type,
-            description,
-            lat,
-            lng,
-            address,
-            status: 0
+        }
+        if (!title) {
+            setError("*Title is required")
+            return false;
+        }
+        if (!type) {
+            setError("*Type of request is required")
+            return false;
+        }
+        if (type === "0") {
+            setError("*Select a valid request type")
+            return false;
+        }
+        if (!description) {
+            setError("*Enter a description 300 characters max.")
+            return false;
+        }
+        if (!address || !lat || !lng) {
+            setError("*Invalid location. Please follow the instruction provided")
+            return false;
         }
 
-        // send data to be processed
-        createRequest(request) 
+        if (title && type && description && address && lat && lng){
+            const request = {
+                title,
+                reqtype: type,
+                description,
+                lat,
+                lng,
+                address,
+                status: 0
+            }
 
-        // clear error
-        setError("")
-        setTitle("")
-        setType("")
-        setDescription("")
-        setAddress("")
-        setLat("")
-        setLng("")
-        }
+            // send data to be processed
+            createRequest(request) 
+
+            // clear error
+            setError("")
+            setTitle("")
+            setType("")
+            setDescription("")
+            setAddress("")
+            setLat("")
+            setLng("")
+            }
     }
     return (
         <div className="pl-3">
@@ -75,7 +96,7 @@ const ReqForm = ({createRequest, processing}) => {
                     <div className="col-12 mb-3">
                         <label>Type<span className="text-danger">*</span></label>
                         <select type="text" className="form-control" onChange={e => setType(e.target.value)}>
-                            <option>select request type...</option>
+                            <option value="0">select request type...</option>
                             <option value="one-time">One-time task</option>
                             <option value="material">Material need</option>
                         </select>
@@ -96,7 +117,7 @@ const ReqForm = ({createRequest, processing}) => {
                         >
                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                                 <div>  
-                                    <label>Location<span className="text-danger">*</span></label>  
+                                    <label>Location<span className="text-danger">* </span><small>(start typing and select your location from the drop down options below)</small></label>  
                                     <input {...getInputProps()} type="text" className="form-control" placeholder="location" aria-label="location" />
                                     <div className="autocomplete-dropdown mb-2 text-left pl-3">
                                         {loading ? <div>loading...</div> : null}

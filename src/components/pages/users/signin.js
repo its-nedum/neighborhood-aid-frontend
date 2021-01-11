@@ -23,8 +23,18 @@ const Signin = (props) => {
         e.preventDefault();
 
         // check if all fields are filled
-        if ( !email || !password){
+        if ( !email && !password){
             setError("*All fields are required")
+            return false;
+        }
+
+        if (!email) {
+            setError("*Email is required")
+            return false;
+        }
+
+        if (!password) {
+            setError("*Password is required")
             return false;
         }
 
@@ -46,10 +56,6 @@ const Signin = (props) => {
 
             // send details to be processed
             login(user)
-
-            // clear fields
-            setEmail("")
-            setPassword("")
         }
     }
 

@@ -44,7 +44,7 @@ const showMap = () => {
         <Fragment>
             <GoogleMap 
                 mapContainerStyle={containerStyle} 
-                center={userLocation} zoom={9}    
+                center={userLocation} zoom={13}    
                 >
                 {requests.map((request) => (
                     // request.reqtype === 'Material need' 
