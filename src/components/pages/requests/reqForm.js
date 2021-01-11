@@ -82,7 +82,7 @@ const ReqForm = ({createRequest, processing}) => {
     }
     return (
         <div className="pl-3">
-            <form className="card mt-5 mb-5 pl-3 request-form">
+            <form className="card mt-2 mb-3 pl-3 request-form">
                 <ToastContainer />
                 <h3 className="">Create a request</h3>
                 <p className="text-left text-danger">{error}</p>
@@ -142,6 +142,21 @@ const ReqForm = ({createRequest, processing}) => {
                     </div>
                 </div>
             </form>
+            <div className="">
+                <div className="row pl-3"><h6><strong>Legend For Request Markers</strong></h6></div>
+            </div>
+            <div className="row">
+                <ul className="ul-list">
+                    <li>
+                        <img src="https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png" style={{height:'30px'}} alt="marker" />
+                        <span className="legend-text">Material Need: i.e., a homeless woman on your street who needs a blanket for winter.</span>
+                    </li>
+                    <li>
+                        <img src="https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png" style={{height:'30px'}} alt="marker" />
+                        <span className="legend-text">One-time Need: i.e., to help carry a piece of heavy furniture.</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }
