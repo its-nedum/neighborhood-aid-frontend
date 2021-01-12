@@ -2,6 +2,8 @@ import React, {useState, Fragment} from 'react'
 import {GoogleMap, Marker, InfoWindow, useLoadScript} from "@react-google-maps/api"
 import {Link} from "react-router-dom"
 import Spinner from "./spinner"
+import green from "../../images/green-icon.png"
+import red from "../../images/red-icon.png"
 
 // set map container size
 const containerStyle = {
@@ -54,7 +56,7 @@ const showMap = () => {
                         position={{lat: request.lat, lng: request.lng}}
                         onLoad={(marker) => markerLoadHandler(marker, request)}
                         onClick={(event) => markerClickHandler(event, request)} 
-                        icon={`https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png`}
+                        icon={green}
                         /> 
                         : 
                     <Marker 
@@ -62,7 +64,7 @@ const showMap = () => {
                         position={{lat: request.lat, lng: request.lng}}
                         onLoad={(marker) => markerLoadHandler(marker, request)}
                         onClick={(event) => markerClickHandler(event, request)} 
-                        icon={`https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png`}
+                        icon={red}
                         />
                 ))}
 
@@ -75,7 +77,7 @@ const showMap = () => {
                         <p className="text-left"><i>{selectedPlace.address}</i></p>
                         <p className="text-left">{`${selectedPlace.user.firstname} ${selectedPlace.user.lastname}`}</p>
                         <div className="d-flex justify-content-between">
-                            <p className=""><strong>Type: </strong>{selectedPlace.reqtype}</p>
+                            <p className=""><strong>Type: </strong>{selectedPlace.reqtype} need</p>
                             {selectedPlace.status === 0 ? 
                                 <p className=""><strong>Status: </strong><span className="text-danger">Unfulfilled</span></p>
                             : 

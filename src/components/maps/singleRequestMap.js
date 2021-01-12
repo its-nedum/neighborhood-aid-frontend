@@ -2,6 +2,8 @@ import React, {Fragment} from 'react'
 import {GoogleMap, Marker, InfoWindow, useLoadScript} from "@react-google-maps/api"
 import Spinner from "./spinner"
 import moment from "moment"
+import green from "../../images/green-icon.png"
+import red from "../../images/red-icon.png"
 
 // set map container size
 const containerStyle = {
@@ -29,7 +31,7 @@ const displayMap = () => {
                     {request.reqtype === 'material' ?
                         <Marker 
                             position={place}
-                            icon={`https://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png`}
+                            icon={green}
                             >
                             <InfoWindow>
                                 <div>
@@ -37,7 +39,7 @@ const displayMap = () => {
                                     <p className="text-left"><i>{request.address}</i></p>
                                     <p className="text-left map-req-by">{`${request.user.firstname} ${request.user.lastname}`}</p>
                                     <div className="d-flex justify-content-between">
-                                        <p className="map-req-type"><strong>Type:</strong> {request.reqtype}</p>
+                                        <p className="map-req-type"><strong>Type:</strong> {request.reqtype} need</p>
                                         { request.status === 0 ? 
                                             <p className="map-req-type"><strong>Status: </strong><span className="text-danger">Unfulfilled</span></p>
                                         : 
@@ -52,7 +54,7 @@ const displayMap = () => {
                     :
                         <Marker 
                             position={place}
-                            icon={`https://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png`}
+                            icon={red}
                             >
                             <InfoWindow>
                                 <div>
@@ -60,7 +62,7 @@ const displayMap = () => {
                                     <p className="text-left"><i>{request.address}</i></p>
                                     <p className="text-left map-req-by">{`${request.user.firstname} ${request.user.lastname}`}</p>
                                     <div className="d-flex justify-content-between">
-                                        <p className="map-req-type"><strong>Type:</strong> {request.reqtype}</p>
+                                        <p className="map-req-type"><strong>Type:</strong> {request.reqtype} need</p>
                                         { request.status === 0 ? 
                                             <p className="map-req-type"><strong>Status: </strong><span className="text-danger">Unfulfilled</span></p>
                                         : 
