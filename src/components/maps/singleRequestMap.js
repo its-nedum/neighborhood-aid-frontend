@@ -26,7 +26,7 @@ const SingleRequestMap = ({request}) => {
 const displayMap = () => {
     return (
         <Fragment>
-            <GoogleMap mapContainerStyle={containerStyle} center={place} zoom={9}>
+            <GoogleMap mapContainerStyle={containerStyle} center={place} zoom={13}>
                      {/* request.reqtype === 'Material need' */}
                     {request.reqtype === 'material' ?
                         <Marker 
